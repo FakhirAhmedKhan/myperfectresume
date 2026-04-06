@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAppStore } from "../store/AppStore.jsx";
 import { calculateATSScore } from "../utils/resumeUtils";
-import { Search, Upload, FileText, CheckCircle2, AlertCircle, TrendingUp, Sparkles } from "lucide-react";
+import { Search, FileText, CheckCircle2, AlertCircle, TrendingUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { LayoutIcon, SparklesIcon } from "../components/common/CustomIcons";
 
 const CheckerPage = () => {
+
     const { atsResults, setAtsResults } = useAppStore();
     const [resumeText, setResumeText] = useState("");
     const [loading, setLoading] = useState(false);
@@ -54,7 +56,7 @@ const CheckerPage = () => {
                     </button>
                     <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800 mt-2">
                         <div className="flex gap-2 text-sm text-blue-700 dark:text-blue-400">
-                             <Sparkles size={16} />
+                             <SparklesIcon size={16} />
                              <span><strong>Pro Tip:</strong> Ensure you include keywords from the job description for a higher score!</span>
                         </div>
                     </div>
@@ -105,7 +107,7 @@ const CheckerPage = () => {
                                 {/* Feedback Area */}
                                 <div className="p-8 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm">
                                     <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                                        <Sparkles className="text-blue-600" /> Improvement Suggestions
+                                        <SparklesIcon className="text-blue-600" /> Improvement Suggestions
                                     </h3>
                                     <div className="flex flex-col gap-4">
                                         {atsResults.suggestions.map((suggestion, idx) => (
@@ -139,8 +141,5 @@ const CheckerPage = () => {
     );
 };
 
-const LayoutIcon = ({className, size}) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
-)
-
 export default CheckerPage;
+

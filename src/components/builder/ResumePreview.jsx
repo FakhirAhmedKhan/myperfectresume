@@ -1,6 +1,5 @@
-import React from "react";
 import { useAppStore } from "../../store/AppStore";
-import { Mail, Phone, MapPin, Globe, Briefcase, GraduationCap, Award, Code } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const ResumePreview = ({ templateId = "professional" }) => {
     const { resumeData } = useAppStore();

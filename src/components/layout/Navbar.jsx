@@ -1,10 +1,8 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAppStore } from "../../store/AppStore.jsx";
-import { Sun, Moon, Layout as LayoutIcon, Cpu, Home } from "lucide-react";
-import { motion } from "framer-motion";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { CpuIcon, FileTextIcon, HomeIcon, LayoutIcon, MoonIcon } from "../common/CustomIcons.jsx";
 
 function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -15,9 +13,9 @@ const Navbar = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: "Home", path: "/", icon: Home },
-    { name: "CV Builder", path: "/builder", icon: LayoutIcon },
-    { name: "ATS Checker", path: "/checker", icon: Cpu },
+    { name: "Home", path: "/", icon: HomeIcon },
+    { name: "CV Builder", path: "/builder", icon: FileTextIcon },
+    { name: "ATS Checker", path: "/checker", icon: CpuIcon },
   ];
 
   return (
@@ -59,7 +57,7 @@ const Navbar = () => {
           className="p-2 rounded-xl bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors border"
           aria-label="Toggle theme"
         >
-          {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+          {theme === "light" ? <MoonIcon size={20} /> : <SunIcon size={20} />}
         </button>
         <button className="md:hidden p-2 rounded-xl bg-gray-100 dark:bg-gray-900 border">
              <LayoutIcon size={20} />

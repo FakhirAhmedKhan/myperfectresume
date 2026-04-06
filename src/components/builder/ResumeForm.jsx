@@ -1,6 +1,5 @@
-import React from "react";
 import { useAppStore } from "../../store/AppStore";
-import { Plus, Trash2, Mail, Phone, MapPin, Briefcase, GraduationCap, Code, FileText } from "lucide-react";
+import { Plus, Trash2, Briefcase, GraduationCap, Code } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ResumeForm = () => {
