@@ -13,7 +13,7 @@ export const Section = ({ title, icon, children }) => (
     </div>
 );
 
-export const DynamicSection = ({ title, icon, items = [], onAdd, onRemove, onUpdate, renderItem }) => (
+const DynamicSection = ({ title, icon, items = [], onAdd, onRemove, onUpdate, renderItem }) => (
     <Section title={title} icon={icon}>
         <div className="flex flex-col gap-4">
             <AnimatePresence>
@@ -51,3 +51,5 @@ export const DynamicSection = ({ title, icon, items = [], onAdd, onRemove, onUpd
         </div>
     </Section>
 );
+
+export default DynamicSection;

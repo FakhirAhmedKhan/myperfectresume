@@ -5,7 +5,6 @@ export const BuilderPage = lazy(() => import("./pages/BuilderPage"));
 export const CheckerPage = lazy(() => import("./pages/CheckerPage"));
 
 export { default as FeatureCard } from "./components/common/FeatureCard";
-export { Section, DynamicSection } from "./components/builder/FormSections";
 export { UserIcon } from "./components/common/CustomIcons";
 
 export const Input = lazy(() => import("./components/common/Input"));
@@ -21,4 +20,9 @@ export const ProfessionalTemplate = lazy(
 export const ResumeForm = lazy(() => import("./components/builder/ResumeForm"));
 export const ResumePreview = lazy(
   () => import("./components/builder/ResumePreview"),
+);
+
+export const Layout = lazy(() => import("./components/layout/Layout.jsx"));
+export const DynamicSection = lazy(
+  () => import("./components/builder/FormSections"),
 );

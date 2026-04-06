@@ -1,8 +1,7 @@
 import { useAppStore } from "../../store/AppStore";
 import { BriefcaseIcon, GraduationCapIcon, CodeIcon, LayoutIcon } from "../common/CustomIcons";
-import { DynamicSection, Section } from "./FormSections";
-import { Input, Textarea, UserIcon } from "../..";
-
+import { Input, Textarea, UserIcon, DynamicSection } from "../../";
+import Section from "./FormSections";
 const ResumeForm = () => {
   const {
     resumeData,
