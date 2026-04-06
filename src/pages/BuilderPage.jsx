@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAppStore } from "../store/AppStore.jsx";
-import ResumeForm from "../components/builder/ResumeForm";
-import ResumePreview from "../components/builder/ResumePreview";
-import { Download, Layout as LayoutIcon, Eye, Edit3, Trash2 } from "lucide-react";
+import { ResumeForm, ResumePreview } from "../index.js";
+import { DownloadIcon, EyeIcon, Edit3Icon, TrashIcon } from "../components/common/CustomIcons";
 import html2pdf from "html2pdf.js";
-import { motion } from "framer-motion";
 
 const BuilderPage = () => {
   const { resumeData, resetData } = useAppStore();
@@ -31,51 +29,51 @@ const BuilderPage = () => {
           <p className="text-gray-500 dark:text-gray-400">Design your perfect professional resume</p>
         </div>
         <div className="flex items-center gap-2">
-            {/* Template Selector */}
-            <div className="hidden lg:flex items-center gap-1 p-1 bg-gray-100 dark:bg-gray-800 rounded-xl mr-2">
-                <button 
-                    onClick={() => setTemplate("professional")}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider ${template === 'professional' ? 'bg-white dark:bg-gray-700 shadow-sm' : 'text-gray-500'}`}
-                >Professional</button>
-                <button 
-                    onClick={() => setTemplate("modern")}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider ${template === 'modern' ? 'bg-white dark:bg-gray-700 shadow-sm' : 'text-gray-500'}`}
-                >Modern</button>
-            </div>
-            <button 
-                onClick={resetData}
-
-                className="p-3 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-colors border border-transparent hover:border-red-200"
-                title="Reset All Data"
-            >
-                <Trash2 size={20} />
-            </button>
+          {/* Template Selector */}
+          <div className="hidden lg:flex items-center gap-1 p-1 bg-gray-100 dark:bg-gray-800 rounded-xl mr-2">
             <button
-                onClick={handleDownload}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/20 flex items-center gap-2 transition-all hover:scale-[1.02]"
-            >
-                <Download size={20} />
-                Download PDF
-            </button>
+              onClick={() => setTemplate("professional")}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider ${template === 'professional' ? 'bg-white dark:bg-gray-700 shadow-sm' : 'text-gray-500'}`}
+            >Professional</button>
+            <button
+              onClick={() => setTemplate("modern")}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider ${template === 'modern' ? 'bg-white dark:bg-gray-700 shadow-sm' : 'text-gray-500'}`}
+            >Modern</button>
+          </div>
+          <button
+            onClick={resetData}
+
+            className="p-3 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-colors border border-transparent hover:border-red-200"
+            title="Reset All Data"
+          >
+            <TrashIcon size={20} />
+          </button>
+          <button
+            onClick={handleDownload}
+            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/20 flex items-center gap-2 transition-all hover:scale-[1.02]"
+          >
+            <DownloadIcon size={20} />
+            Download PDF
+          </button>
         </div>
       </header>
 
       {/* Mobile Tab Toggle */}
       <div className="md:hidden flex p-1 bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800">
-         <button 
-            onClick={() => setActiveTab("edit")}
-            className={`flex-1 py-3 rounded-lg font-medium flex items-center justify-center gap-2 ${activeTab === 'edit' ? 'bg-white dark:bg-gray-800 shadow-sm text-blue-600' : 'text-gray-500'}`}
-         >
-             <Edit3 size={18} />
-             Editor
-         </button>
-         <button 
-            onClick={() => setActiveTab("preview")}
-            className={`flex-1 py-3 rounded-lg font-medium flex items-center justify-center gap-2 ${activeTab === 'preview' ? 'bg-white dark:bg-gray-800 shadow-sm text-blue-600' : 'text-gray-500'}`}
-         >
-             <Eye size={18} />
-             Preview
-         </button>
+        <button
+          onClick={() => setActiveTab("edit")}
+          className={`flex-1 py-3 rounded-lg font-medium flex items-center justify-center gap-2 ${activeTab === 'edit' ? 'bg-white dark:bg-gray-800 shadow-sm text-blue-600' : 'text-gray-500'}`}
+        >
+          <Edit3Icon size={18} />
+          Editor
+        </button>
+        <button
+          onClick={() => setActiveTab("preview")}
+          className={`flex-1 py-3 rounded-lg font-medium flex items-center justify-center gap-2 ${activeTab === 'preview' ? 'bg-white dark:bg-gray-800 shadow-sm text-blue-600' : 'text-gray-500'}`}
+        >
+          <EyeIcon size={18} />
+          Preview
+        </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
@@ -86,9 +84,9 @@ const BuilderPage = () => {
 
         {/* Preview Column */}
         <div className={`md:col-span-7 ${activeTab === 'edit' ? 'hidden md:block' : 'block'} sticky top-24`}>
-           <div className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden min-h-[85vh]">
-                <ResumePreview templateId={template} />
-           </div>
+          <div className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden min-h-[85vh]">
+            <ResumePreview templateId={template} />
+          </div>
         </div>
 
       </div>

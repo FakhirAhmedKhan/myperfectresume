@@ -23,7 +23,13 @@ const STORAGE_KEY = "smart-resume-studio-data";
 export const AppProvider = ({ children }) => {
   const [resumeData, setResumeData] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : initialResumeData;
+    if (!saved) return initialResumeData;
+    try {
+      const parsed = JSON.parse(saved);
+      return { ...initialResumeData, ...parsed };
+    } catch (e) {
+      return initialResumeData;
+    }
   });
 
   const [atsResults, setAtsResults] = useState(null);
