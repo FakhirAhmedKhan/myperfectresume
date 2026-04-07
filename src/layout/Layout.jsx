@@ -1,14 +1,13 @@
-import Navbar from "./Navbar";
 import { m } from "framer-motion";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, BuilderPage, CheckerPage } from "../../index";
-import { AppProvider } from "../../store/AppStore";
+import { HomePage, BuilderPage, CheckerPage, NavBar } from "../index";
+import { AppProvider } from "../store/AppStore";
 
 const Layout = () => {
   return (
     <AppProvider>
       <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
-        <Navbar />
+        <NavBar />
         <main className="container mx-auto p-4 md:p-8">
           <m.div
             initial={{ opacity: 0, y: 10 }}

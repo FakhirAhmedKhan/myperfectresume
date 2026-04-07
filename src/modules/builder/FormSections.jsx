@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { PlusIcon, TrashIcon } from "../common/CustomIcons";
+import { PlusIcon, TrashIcon } from "../../index";
 
 export const Section = ({ title, icon, children }) => (
     <div className="flex flex-col gap-6 p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm">

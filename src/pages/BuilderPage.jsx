@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useAppStore } from "../store/AppStore.jsx";
-import { ResumeForm, ResumePreview } from "../index.js";
-import { DownloadIcon, EyeIcon, Edit3Icon, TrashIcon } from "../components/common/CustomIcons";
+import { DownloadIcon, EyeIcon, Edit3Icon, TrashIcon, ResumeForm, ResumePreview } from "../index.js";
 
 const BuilderPage = () => {
   const { resumeData, resetData } = useAppStore();
@@ -22,7 +21,7 @@ const BuilderPage = () => {
         jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
       };
       await html2pdf().set(opt).from(element).save();
-    } catch(err) {
+    } catch (err) {
       console.error(err);
     } finally {
       setIsExporting(false);

@@ -1,5 +1,4 @@
-import { MailIcon, PhoneIcon, MapPinIcon } from "../../common/CustomIcons";
-import ContactItem from "../../common/ContactItem";
+import { MailIcon, PhoneIcon, MapPinIcon ,ContactItem} from "../../../index";
 
 const ProfessionalTemplate = ({ personalInfo, experience, education, skills, projects }) => (
     <div id="resume-preview-content" className="p-12 bg-white text-gray-900 min-h-[1056px] shadow-2xl font-serif">

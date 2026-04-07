@@ -1,4 +1,4 @@
-import { BriefcaseIcon } from "../../../components/common/CustomIcons";
+import { BriefcaseIcon } from "../../../index";
 import { mockJobDescription } from "../data/mockJobDescription";
 
  const JobDescriptionPanel = ({ jdText, setJdText }) => {

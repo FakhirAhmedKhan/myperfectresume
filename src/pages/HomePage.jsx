@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import FeatureCard from "../components/common/FeatureCard";
-import { LayoutIcon, CpuIcon, SparklesIcon, AwardIcon } from "../components/common/CustomIcons";
+import { FeatureCard, LayoutIcon, CpuIcon, SparklesIcon, AwardIcon } from "../index";
 
 const HomePage = () => {
 

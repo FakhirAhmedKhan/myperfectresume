@@ -1,39 +1,54 @@
 import { lazy } from "react";
 
 export const HomePage = lazy(() => import("./pages/HomePage"));
+export const NavBar = lazy(() => import("./layout/Navbar"));
 export const BuilderPage = lazy(() => import("./pages/BuilderPage"));
 export const CheckerPage = lazy(() => import("./pages/CheckerPage"));
+export const FeatureCard = lazy(() => import("./modules/builder/components/common/FeatureCard"));
+export const Input = lazy(() => import("./modules/builder/components/common/Input"));
+export const Textarea = lazy(() => import("./modules/builder/components/common/Textarea"));
+export const ModernTemplate = lazy(() => import("./modules/builder/templates/ModernTemplate"));
+export const ProfessionalTemplate = lazy(() => import("./modules/builder/templates/ProfessionalTemplate"));
+export const ResumeForm = lazy(() => import("./modules/builder/ResumeForm"));
+export const ResumePreview = lazy(() => import("./modules/builder/ResumePreview"));
+export const Layout = lazy(() => import("./layout/Layout"));
+export const DynamicSection = lazy(() => import("./modules/builder/FormSections"),);
+export const ResumeInputPanel = lazy(() => import("./modules/ats-checker/components/ResumeInputPanel"),);
+export const JobDescriptionPanel = lazy(() => import("./modules/ats-checker/components/JobDescriptionPanel"),);
+export const RoleSelector = lazy(() => import("./modules/ats-checker/components/RoleSelector"),);
+export const ATSResults = lazy(() => import("./modules/ats-checker/components/ATSResults"),);
+export const ScoreCard = lazy(() => import("./modules/ats-checker/components/ScoreCard"),);
+export const ScoreBreakdown = lazy(() => import("./modules/ats-checker/components/ScoreBreakdown"),);
+export const KeywordMatchPanel = lazy(() => import("./modules/ats-checker/components/KeywordMatchPanel"),);
+export const MissingSectionsPanel = lazy(() => import("./modules/ats-checker/components/MissingSectionsPanel"),);
+export const SuggestionsPanel = lazy(() => import("./modules/ats-checker/components/SuggestionsPanel"),);
+export const ContactItem = lazy(() => import("./modules/builder/components/common/ContactItem"),);
 
-export { default as FeatureCard } from "./components/common/FeatureCard";
-export { UserIcon } from "./components/common/CustomIcons";
 
-export const Input = lazy(() => import("./components/common/Input"));
-export const Textarea = lazy(() => import("./components/common/Textarea"));
-
-export const ModernTemplate = lazy(
-  () => import("./components/builder/templates/ModernTemplate"),
-);
-export const ProfessionalTemplate = lazy(
-  () => import("./components/builder/templates/ProfessionalTemplate"),
-);
-
-export const ResumeForm = lazy(() => import("./components/builder/ResumeForm"));
-export const ResumePreview = lazy(
-  () => import("./components/builder/ResumePreview"),
-);
-
-export const Layout = lazy(() => import("./components/layout/Layout.jsx"));
-export const DynamicSection = lazy(
-  () => import("./components/builder/FormSections"),
-);
-
-export const ResumeInputPanel = lazy(() => import("./modules/ats-checker/components/ResumeInputPanel"));
-export const JobDescriptionPanel = lazy(() => import("./modules/ats-checker/components/JobDescriptionPanel"));
-export const RoleSelector = lazy(() => import("./modules/ats-checker/components/RoleSelector"));
-export const ATSResults = lazy(() => import("./modules/ats-checker/components/ATSResults"));
-
-export const ScoreCard = lazy(() => import("./modules/ats-checker/components/ScoreCard"));
-export const ScoreBreakdown = lazy(() => import("./modules/ats-checker/components/ScoreBreakdown"));
-export const KeywordMatchPanel = lazy(() => import("./modules/ats-checker/components/KeywordMatchPanel"));
-export const MissingSectionsPanel = lazy(() => import("./modules/ats-checker/components/MissingSectionsPanel"));
-export const SuggestionsPanel = lazy(() => import("./modules/ats-checker/components/SuggestionsPanel"));
+// icons 
+export const UserIcon = lazy(() => import("./utils/CustomIcons"));
+export const HomeIcon = lazy(() => import("./utils/CustomIcons"));
+export const FileTextIcon = lazy(() => import("./utils/CustomIcons"));
+export const CpuIcon = lazy(() => import("./utils/CustomIcons"));
+export const LayoutIcon = lazy(() => import("./utils/CustomIcons"));
+export const MoonIcon = lazy(() => import("./utils/CustomIcons"));
+export const SunIcon = lazy(() => import("./utils/CustomIcons"));
+export const Edit3Icon = lazy(() => import("./utils/CustomIcons"));
+export const TrashIcon = lazy(() => import("./utils/CustomIcons"));
+export const DownloadIcon = lazy(() => import("./utils/CustomIcons"));
+export const EyeIcon = lazy(() => import("./utils/CustomIcons"));
+export const ResumeIcon = lazy(() => import("./utils/CustomIcons"));
+export const BriefcaseIcon = lazy(() => import("./utils/CustomIcons"));
+export const SparklesIcon = lazy(() => import("./utils/CustomIcons"));
+export const AwardIcon = lazy(() => import("./utils/CustomIcons"));
+export const CheckCircle2Icon = lazy(() => import("./utils/CustomIcons"));
+export const AlertCircleIcon = lazy(() => import("./utils/CustomIcons"));
+export const TrendingUpIcon = lazy(() => import("./utils/CustomIcons"));
+export const MapPinIcon = lazy(() => import("./utils/CustomIcons"));
+export const StarIcon = lazy(() => import("./utils/CustomIcons"));
+export const PhoneIcon = lazy(() => import("./utils/CustomIcons"));
+export const MailIcon = lazy(() => import("./utils/CustomIcons"));
+export const PlusIcon = lazy(() => import("./utils/CustomIcons"));
+export const GraduationCapIcon = lazy(() => import("./utils/CustomIcons"));
+export const CodeIcon = lazy(() => import("./utils/CustomIcons"));
+export const SearchIcon = lazy(() => import("./utils/CustomIcons"));

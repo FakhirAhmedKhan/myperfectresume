@@ -1,4 +1,4 @@
-import { FileTextIcon } from "../../../components/common/CustomIcons";
+import { FileTextIcon } from "../../../index";
 import { mockResumeText } from "../data/mockResumeText";
 
  const ResumeInputPanel = ({ resumeText, setResumeText }) => {

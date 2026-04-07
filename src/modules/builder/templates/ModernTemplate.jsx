@@ -1,4 +1,4 @@
-import { MailIcon, PhoneIcon, MapPinIcon } from "../../common/CustomIcons";
+import { MailIcon, PhoneIcon, MapPinIcon } from "../../../index";
 
 const ModernTemplate = ({ personalInfo, experience, education, skills }) => (
     <div id="resume-preview-content" className="flex flex-col md:flex-row bg-white text-gray-900 min-h-[1100px] shadow-2xl font-sans">

@@ -1,6 +1,5 @@
 import { AnimatePresence } from "framer-motion";
-import {  ResumeInputPanel, JobDescriptionPanel, RoleSelector, ATSResults } from "../index";
-import { SearchIcon } from "../components/common/CustomIcons";
+import {  ResumeInputPanel, JobDescriptionPanel, RoleSelector, ATSResults, SearchIcon } from "../index";
 import { useATSChecker } from "../modules/ats-checker/hooks/useATSChecker";
 
 const ATSCheckerPage = () => {

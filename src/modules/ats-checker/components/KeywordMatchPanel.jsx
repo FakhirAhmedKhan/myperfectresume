@@ -1,4 +1,4 @@
-import { CodeIcon } from "../../../components/common/CustomIcons";
+import { CodeIcon } from "../../../index";
 
 const PillList = ({ items, colorClass }) => {
   if (!items || items.length === 0) return <span className="text-xs text-gray-400 italic">None</span>;

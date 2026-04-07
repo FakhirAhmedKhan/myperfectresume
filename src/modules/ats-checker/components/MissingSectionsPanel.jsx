@@ -1,4 +1,4 @@
-import { LayoutIcon } from "../../../components/common/CustomIcons";
+import { LayoutIcon } from "../../../index";
 
  const MissingSectionsPanel = ({ missingSections }) => {
   if (!missingSections || missingSections.length === 0) return null;

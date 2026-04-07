@@ -1,4 +1,4 @@
-import { CheckCircle2Icon, AlertCircleIcon } from "../../../components/common/CustomIcons";
+import { CheckCircle2Icon, AlertCircleIcon } from "../../../index";
 
  const SuggestionsPanel = ({ suggestions, strengths }) => {
   return (
