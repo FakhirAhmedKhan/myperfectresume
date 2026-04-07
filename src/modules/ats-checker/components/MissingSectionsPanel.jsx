@@ -1,6 +1,6 @@
 import { LayoutIcon } from "../../../components/common/CustomIcons";
 
-export const MissingSectionsPanel = ({ missingSections }) => {
+ const MissingSectionsPanel = ({ missingSections }) => {
   if (!missingSections || missingSections.length === 0) return null;
 
   return (
@@ -18,3 +18,4 @@ export const MissingSectionsPanel = ({ missingSections }) => {
     </div>
   );
 };
+export default MissingSectionsPanel;

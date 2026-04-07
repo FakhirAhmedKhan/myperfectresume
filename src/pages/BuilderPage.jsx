@@ -2,23 +2,31 @@ import { useState } from "react";
 import { useAppStore } from "../store/AppStore.jsx";
 import { ResumeForm, ResumePreview } from "../index.js";
 import { DownloadIcon, EyeIcon, Edit3Icon, TrashIcon } from "../components/common/CustomIcons";
-import html2pdf from "html2pdf.js";
 
 const BuilderPage = () => {
   const { resumeData, resetData } = useAppStore();
   const [activeTab, setActiveTab] = useState("edit");
   const [template, setTemplate] = useState("professional");
+  const [isExporting, setIsExporting] = useState(false);
 
-  const handleDownload = () => {
-    const element = document.getElementById("resume-preview-content");
-    const opt = {
-      margin: 0,
-      filename: `${resumeData.personalInfo.fullName || "Resume"}.pdf`,
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    };
-    html2pdf().set(opt).from(element).save();
+  const handleDownload = async () => {
+    setIsExporting(true);
+    try {
+      const { default: html2pdf } = await import("html2pdf.js");
+      const element = document.getElementById("resume-preview-content");
+      const opt = {
+        margin: 0,
+        filename: `${resumeData.personalInfo.fullName || "Resume"}.pdf`,
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+      };
+      await html2pdf().set(opt).from(element).save();
+    } catch(err) {
+      console.error(err);
+    } finally {
+      setIsExporting(false);
+    }
   };
 
   return (
@@ -50,10 +58,14 @@ const BuilderPage = () => {
           </button>
           <button
             onClick={handleDownload}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/20 flex items-center gap-2 transition-all hover:scale-[1.02]"
+            disabled={isExporting}
+            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:opacity-75 disabled:cursor-wait text-white rounded-xl font-semibold shadow-lg shadow-blue-500/20 flex items-center gap-2 transition-all hover:scale-[1.02]"
           >
-            <DownloadIcon size={20} />
-            Download PDF
+            {isExporting ? (
+              <><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Exporting...</>
+            ) : (
+              <><DownloadIcon size={20} /> Download PDF</>
+            )}
           </button>
         </div>
       </header>

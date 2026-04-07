@@ -1,4 +1,4 @@
-export const ScoreCard = ({ score }) => {
+const ScoreCard = ({ score }) => {
   const getScoreData = (score) => {
     if (score < 40) return { label: "Poor", color: "text-red-500", stroke: "stroke-red-500" };
     if (score < 60) return { label: "Needs Work", color: "text-orange-500", stroke: "stroke-orange-500" };
@@ -37,3 +37,4 @@ export const ScoreCard = ({ score }) => {
     </div>
   );
 };
+export default ScoreCard;

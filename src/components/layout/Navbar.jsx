@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useAppStore } from "../../store/AppStore.jsx";
 
-import { CpuIcon, FileTextIcon, HomeIcon, LayoutIcon, MoonIcon } from "../common/CustomIcons.jsx";
+import { CpuIcon, FileTextIcon, HomeIcon, LayoutIcon, MoonIcon, SunIcon } from "../common/CustomIcons.jsx";
 
 export function cn(...inputs) {
   return inputs

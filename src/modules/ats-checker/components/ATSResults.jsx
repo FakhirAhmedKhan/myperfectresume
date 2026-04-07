@@ -1,15 +1,11 @@
-import { motion } from "framer-motion";
-import { ScoreCard } from "./ScoreCard";
-import { ScoreBreakdown } from "./ScoreBreakdown";
-import { KeywordMatchPanel } from "./KeywordMatchPanel";
-import { MissingSectionsPanel } from "./MissingSectionsPanel";
-import { SuggestionsPanel } from "./SuggestionsPanel";
+import { m } from "framer-motion";
+import { ScoreCard, ScoreBreakdown, KeywordMatchPanel, MissingSectionsPanel, SuggestionsPanel } from "../../../index";
 
-export const ATSResults = ({ results, isJDMode }) => {
+ const ATSResults = ({ results, isJDMode }) => {
   if (!results) return null;
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -20 }}
@@ -34,6 +30,8 @@ export const ATSResults = ({ results, isJDMode }) => {
         suggestions={results.suggestions} 
         strengths={results.strengths} 
       />
-    </motion.div>
+    </m.div>
   );
 };
+
+export default ATSResults;

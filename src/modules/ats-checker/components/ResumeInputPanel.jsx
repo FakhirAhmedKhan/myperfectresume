@@ -1,7 +1,7 @@
 import { FileTextIcon } from "../../../components/common/CustomIcons";
 import { mockResumeText } from "../data/mockResumeText";
 
-export const ResumeInputPanel = ({ resumeText, setResumeText }) => {
+ const ResumeInputPanel = ({ resumeText, setResumeText }) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between mb-2">
@@ -25,3 +25,5 @@ export const ResumeInputPanel = ({ resumeText, setResumeText }) => {
     </div>
   );
 };
+
+export default ResumeInputPanel;

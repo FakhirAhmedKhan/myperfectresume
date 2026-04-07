@@ -1,6 +1,6 @@
 import { ROLE_KEYWORDS } from "../config/roleKeywords";
 
-export const RoleSelector = ({ role, setRole }) => {
+ const RoleSelector = ({ role, setRole }) => {
   const roles = Object.keys(ROLE_KEYWORDS);
 
   return (
@@ -20,3 +20,4 @@ export const RoleSelector = ({ role, setRole }) => {
     </div>
   );
 };
+export default RoleSelector;

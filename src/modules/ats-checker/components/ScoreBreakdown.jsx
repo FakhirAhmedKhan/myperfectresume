@@ -13,7 +13,7 @@ const ProgressBar = ({ label, score, colorClass }) => (
   </div>
 );
 
-export const ScoreBreakdown = ({ breakdown, isJDMode }) => {
+ const ScoreBreakdown = ({ breakdown, isJDMode }) => {
   return (
     <div className="p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm">
       <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Score Breakdown</h3>
@@ -32,3 +32,4 @@ export const ScoreBreakdown = ({ breakdown, isJDMode }) => {
     </div>
   );
 };
+export default ScoreBreakdown;

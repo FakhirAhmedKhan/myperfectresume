@@ -1,7 +1,7 @@
 import { BriefcaseIcon } from "../../../components/common/CustomIcons";
 import { mockJobDescription } from "../data/mockJobDescription";
 
-export const JobDescriptionPanel = ({ jdText, setJdText }) => {
+ const JobDescriptionPanel = ({ jdText, setJdText }) => {
   return (
     <div className="flex flex-col gap-4 mt-6">
       <div className="flex items-center justify-between mb-2">
@@ -25,3 +25,5 @@ export const JobDescriptionPanel = ({ jdText, setJdText }) => {
     </div>
   );
 };
+
+export default JobDescriptionPanel;
