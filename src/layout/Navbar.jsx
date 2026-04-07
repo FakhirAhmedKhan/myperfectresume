@@ -1,6 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
 import { useAppStore } from "../store/AppStore.jsx";
-
 import { CpuIcon, FileTextIcon, HomeIcon, LayoutIcon, MoonIcon, SunIcon } from "../index";
 
 export function cn(...inputs) {
@@ -11,35 +9,37 @@ export function cn(...inputs) {
     .trim();
 }
 
-const Navbar = () => {
+const Navbar = ({ currentPage, onPageChange }) => {
   const { theme, toggleTheme } = useAppStore();
-  const location = useLocation();
 
   const navLinks = [
-    { name: "Home", path: "/", icon: HomeIcon },
-    { name: "CV Builder", path: "/builder", icon: FileTextIcon },
-    { name: "ATS Checker", path: "/checker", icon: CpuIcon },
+    { name: "Home", id: "home", icon: HomeIcon },
+    { name: "CV Builder", id: "builder", icon: FileTextIcon },
+    { name: "ATS Checker", id: "checker", icon: CpuIcon },
   ];
 
   return (
     <nav className="sticky top-0 z-50 w-full glass border-b px-6 py-4 flex items-center justify-between">
-      <Link to="/" className="flex items-center gap-2 group">
+      <button 
+        onClick={() => onPageChange("home")}
+        className="flex items-center gap-2 group text-left"
+      >
         <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform">
           <LayoutIcon size={24} />
         </div>
         <span className="text-xl font-bold gradient-text hidden sm:inline-block">
           Smart Resume Studio
         </span>
-      </Link>
+      </button>
 
       <div className="hidden md:flex items-center gap-2 bg-gray-100 dark:bg-gray-900 p-1 rounded-full border">
         {navLinks.map((link) => {
-          const isActive = location.pathname === link.path;
+          const isActive = currentPage === link.id;
           const Icon = link.icon;
           return (
-            <Link
-              key={link.path}
-              to={link.path}
+            <button
+              key={link.id}
+              onClick={() => onPageChange(link.id)}
               className={cn(
                 "px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2",
                 isActive
@@ -49,7 +49,7 @@ const Navbar = () => {
             >
               <Icon size={18} />
               {link.name}
-            </Link>
+            </button>
           );
         })}
       </div>

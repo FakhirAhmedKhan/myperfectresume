@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const FeatureCard = ({ icon, title, description }) => (
-    <motion.div
+    <m.div
         whileHover={{ y: -5 }}
         className="p-5 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all"
     >
@@ -14,7 +14,7 @@ const FeatureCard = ({ icon, title, description }) => (
         <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
             {description}
         </p>
-    </motion.div>
+    </m.div>
 );
 
 export default FeatureCard;

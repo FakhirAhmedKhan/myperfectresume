@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -17,8 +17,8 @@ export default defineConfig({
             if (id.includes('html2pdf.js')) {
               return 'html2pdf-vendor';
             }
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
-              return 'react-vendor';
+            if (id.includes('tailwindcss')) {
+              return 'tailwindcss-vendor';
             }
             return 'vendor';
           }

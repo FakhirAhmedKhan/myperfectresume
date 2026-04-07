@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { FeatureCard, LayoutIcon, CpuIcon, SparklesIcon, AwardIcon } from "../index";
 
 const HomePage = () => {
@@ -32,20 +31,20 @@ const HomePage = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <Link
-                        to="/builder"
-                        className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all hover:scale-105 shadow-xl shadow-blue-500/25 flex items-center gap-2 w-full sm:w-auto justify-center"
+                    <a
+                        href="/builder"
+                         className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all hover:scale-105 shadow-xl shadow-blue-500/25 flex items-center gap-2 w-full sm:w-auto justify-center"
                     >
                         <LayoutIcon size={20} />
                         Build Professional CV
-                    </Link>
-                    <Link
-                        to="/checker"
+                    </a>
+                    <a
+                        href="/checker"
                         className="px-8 py-4 bg-gray-900 dark:bg-white dark:text-gray-900 text-white rounded-2xl font-bold hover:bg-black dark:hover:bg-gray-100 transition-all hover:scale-105 flex items-center gap-2 w-full sm:w-auto justify-center shadow-lg"
                     >
                         <CpuIcon size={20} />
                         Analyze ATS Score
-                    </Link>
+                    </a>
                 </div>
             </div>
 

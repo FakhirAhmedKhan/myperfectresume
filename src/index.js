@@ -23,32 +23,33 @@ export const KeywordMatchPanel = lazy(() => import("./modules/ats-checker/compon
 export const MissingSectionsPanel = lazy(() => import("./modules/ats-checker/components/MissingSectionsPanel"),);
 export const SuggestionsPanel = lazy(() => import("./modules/ats-checker/components/SuggestionsPanel"),);
 export const ContactItem = lazy(() => import("./modules/builder/components/common/ContactItem"),);
+// Helper for lazy loading named exports
+const lazyIcon = (name) => lazy(() => import("./utils/CustomIcons").then(module => ({ default: module[name] })));
 
-
-// icons 
-export const UserIcon = lazy(() => import("./utils/CustomIcons"));
-export const HomeIcon = lazy(() => import("./utils/CustomIcons"));
-export const FileTextIcon = lazy(() => import("./utils/CustomIcons"));
-export const CpuIcon = lazy(() => import("./utils/CustomIcons"));
-export const LayoutIcon = lazy(() => import("./utils/CustomIcons"));
-export const MoonIcon = lazy(() => import("./utils/CustomIcons"));
-export const SunIcon = lazy(() => import("./utils/CustomIcons"));
-export const Edit3Icon = lazy(() => import("./utils/CustomIcons"));
-export const TrashIcon = lazy(() => import("./utils/CustomIcons"));
-export const DownloadIcon = lazy(() => import("./utils/CustomIcons"));
-export const EyeIcon = lazy(() => import("./utils/CustomIcons"));
-export const ResumeIcon = lazy(() => import("./utils/CustomIcons"));
-export const BriefcaseIcon = lazy(() => import("./utils/CustomIcons"));
-export const SparklesIcon = lazy(() => import("./utils/CustomIcons"));
-export const AwardIcon = lazy(() => import("./utils/CustomIcons"));
-export const CheckCircle2Icon = lazy(() => import("./utils/CustomIcons"));
-export const AlertCircleIcon = lazy(() => import("./utils/CustomIcons"));
-export const TrendingUpIcon = lazy(() => import("./utils/CustomIcons"));
-export const MapPinIcon = lazy(() => import("./utils/CustomIcons"));
-export const StarIcon = lazy(() => import("./utils/CustomIcons"));
-export const PhoneIcon = lazy(() => import("./utils/CustomIcons"));
-export const MailIcon = lazy(() => import("./utils/CustomIcons"));
-export const PlusIcon = lazy(() => import("./utils/CustomIcons"));
-export const GraduationCapIcon = lazy(() => import("./utils/CustomIcons"));
-export const CodeIcon = lazy(() => import("./utils/CustomIcons"));
-export const SearchIcon = lazy(() => import("./utils/CustomIcons"));
+// icons
+export const UserIcon = lazyIcon("UserIcon");
+export const HomeIcon = lazyIcon("HomeIcon");
+export const FileTextIcon = lazyIcon("FileTextIcon");
+export const CpuIcon = lazyIcon("CpuIcon");
+export const LayoutIcon = lazyIcon("LayoutIcon");
+export const MoonIcon = lazyIcon("MoonIcon");
+export const SunIcon = lazyIcon("SunIcon");
+export const Edit3Icon = lazyIcon("Edit3Icon");
+export const TrashIcon = lazyIcon("TrashIcon");
+export const DownloadIcon = lazyIcon("DownloadIcon");
+export const EyeIcon = lazyIcon("EyeIcon");
+export const ResumeIcon = lazyIcon("ResumeIcon");
+export const BriefcaseIcon = lazyIcon("BriefcaseIcon");
+export const SparklesIcon = lazyIcon("SparklesIcon");
+export const AwardIcon = lazyIcon("AwardIcon");
+export const CheckCircle2Icon = lazyIcon("CheckCircle2Icon");
+export const AlertCircleIcon = lazyIcon("AlertCircleIcon");
+export const TrendingUpIcon = lazyIcon("TrendingUpIcon");
+export const MapPinIcon = lazyIcon("MapPinIcon");
+export const StarIcon = lazyIcon("StarIcon");
+export const PhoneIcon = lazyIcon("PhoneIcon");
+export const MailIcon = lazyIcon("MailIcon");
+export const PlusIcon = lazyIcon("PlusIcon");
+export const GraduationCapIcon = lazyIcon("GraduationCapIcon");
+export const CodeIcon = lazyIcon("CodeIcon");
+export const SearchIcon = lazyIcon("SearchIcon");
