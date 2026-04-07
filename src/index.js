@@ -2,7 +2,7 @@ import { lazy } from "react";
 
 export const HomePage = lazy(() => import("./pages/HomePage"));
 export const BuilderPage = lazy(() => import("./pages/BuilderPage"));
-export const CheckerPage = lazy(() => import("./pages/CheckerPage"));
+export const CheckerPage = lazy(() => import("./modules/ats-checker/pages/ATSCheckerPage"));
 
 export { default as FeatureCard } from "./components/common/FeatureCard";
 export { UserIcon } from "./components/common/CustomIcons";
