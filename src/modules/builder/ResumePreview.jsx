@@ -1,4 +1,4 @@
-import { useAppStore } from "../../store/AppStore";
+import { useAppStore } from "../../AppStore";
 import { ModernTemplate, ProfessionalTemplate } from "../../index";
 
 const ResumePreview = ({ templateId = "professional" }) => {

@@ -1,7 +1,7 @@
 import { lazy } from "react";
 
 export const HomePage = lazy(() => import("./pages/HomePage"));
-export const NavBar = lazy(() => import("./layout/Navbar"));
+export const NavBar = lazy(() => import("./Navbar"));
 export const BuilderPage = lazy(() => import("./pages/BuilderPage"));
 export const CheckerPage = lazy(() => import("./pages/CheckerPage"));
 export const FeatureCard = lazy(() => import("./modules/builder/components/common/FeatureCard"));
@@ -11,7 +11,7 @@ export const ModernTemplate = lazy(() => import("./modules/builder/templates/Mod
 export const ProfessionalTemplate = lazy(() => import("./modules/builder/templates/ProfessionalTemplate"));
 export const ResumeForm = lazy(() => import("./modules/builder/ResumeForm"));
 export const ResumePreview = lazy(() => import("./modules/builder/ResumePreview"));
-export const Layout = lazy(() => import("./layout/Layout"));
+export const Layout = lazy(() => import("./Layout"));
 export const DynamicSection = lazy(() => import("./modules/builder/FormSections"),);
 export const ResumeInputPanel = lazy(() => import("./modules/ats-checker/components/ResumeInputPanel"),);
 export const JobDescriptionPanel = lazy(() => import("./modules/ats-checker/components/JobDescriptionPanel"),);
@@ -24,7 +24,7 @@ export const MissingSectionsPanel = lazy(() => import("./modules/ats-checker/com
 export const SuggestionsPanel = lazy(() => import("./modules/ats-checker/components/SuggestionsPanel"),);
 export const ContactItem = lazy(() => import("./modules/builder/components/common/ContactItem"),);
 // Helper for lazy loading named exports
-const lazyIcon = (name) => lazy(() => import("./utils/CustomIcons").then(module => ({ default: module[name] })));
+const lazyIcon = (name) => lazy(() => import("./CustomIcons").then(module => ({ default: module[name] })));
 
 // icons
 export const UserIcon = lazyIcon("UserIcon");

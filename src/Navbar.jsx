@@ -1,5 +1,5 @@
-import { useAppStore } from "../store/AppStore.jsx";
-import { CpuIcon, FileTextIcon, HomeIcon, LayoutIcon, MoonIcon, SunIcon } from "../index";
+import { useAppStore } from "./AppStore.jsx";
+import { CpuIcon, FileTextIcon, HomeIcon, LayoutIcon, MoonIcon, SunIcon } from "./index";
 
 export function cn(...inputs) {
   return inputs
@@ -20,7 +20,7 @@ const Navbar = ({ currentPage, onPageChange }) => {
 
   return (
     <nav className="sticky top-0 z-50 w-full glass border-b px-6 py-4 flex items-center justify-between">
-      <button 
+      <button
         onClick={() => onPageChange("home")}
         className="flex items-center gap-2 group text-left"
       >

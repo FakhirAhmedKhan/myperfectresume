@@ -1,4 +1,4 @@
-import { useAppStore } from "../../store/AppStore";
+import { useAppStore } from "../../AppStore";
 import { BriefcaseIcon, GraduationCapIcon, CodeIcon, LayoutIcon, Input, Textarea, UserIcon, DynamicSection } from "../../index";
 import Section from "./FormSections";
 

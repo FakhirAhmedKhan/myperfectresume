@@ -1,9 +1,9 @@
 import { Suspense, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { LazyMotion } from "framer-motion";
-import { HomePage, BuilderPage, CheckerPage, NavBar } from "../index";
-import { AppProvider } from "../store/AppStore";
-import "../index.css";
+import { HomePage, BuilderPage, CheckerPage, NavBar } from "./index";
+import { AppProvider } from "./AppStore";
+import "./index.css";
 
 const pages = {
   home: <HomePage />,

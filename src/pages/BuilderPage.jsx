@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAppStore } from "../store/AppStore.jsx";
+import { useAppStore } from "../AppStore.jsx";
 import { DownloadIcon, EyeIcon, Edit3Icon, TrashIcon, ResumeForm, ResumePreview } from "../index.js";
 
 const BuilderPage = () => {
