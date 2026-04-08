@@ -1,79 +1,12 @@
 import { useState } from "react";
 import { FileTextIcon, DownloadIcon, LayoutIcon, BriefcaseIcon, GraduationCapIcon, CodeIcon, Input, Textarea, UserIcon } from "../../../index";
-import { mockResumeText } from "../data/mockResumeText";
-import { useAppStore } from "../../../AppStore";
 import { Section, DynamicSection } from "../../builder/FormSections";
 import * as pdfjs from "pdfjs-dist";
 import pdfjsWorker from "pdfjs-dist/build/pdf.worker.mjs?url";
-import Tesseract from "tesseract.js";
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
-const ResumeInputPanel = ({ resumeData, setResumeData, updatePersonalInfo, addItem, removeItem, updateItem }) => {
-  const { resumeData: builderData } = useAppStore();
-  const [isExtracting, setIsExtracting] = useState(false);
-  const [status, setStatus] = useState("");
-  const [mode, setMode] = useState("structured");
-
-  const handleImportFromBuilder = () => {
-    if (!builderData) return;
-    setResumeData(builderData);
-    setMode("structured");
-  };
-
-  const handleFileUpload = async (e) => {
-    const file = e.target.files[0];
-    if (!file || file.type !== "application/pdf") return;
-
-    setIsExtracting(true);
-    setStatus("Reading PDF...");
-    try {
-      const arrayBuffer = await file.arrayBuffer();
-      const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
-      let fullText = "";
-
-      for (let i = 1; i <= pdf.numPages; i++) {
-        const page = await pdf.getPage(i);
-        const textContent = await page.getTextContent();
-        const pageText = textContent.items
-          .filter(item => typeof item.str === 'string')
-          .map((item) => item.str)
-          .join(" ");
-        fullText += pageText + "\n";
-      }
-
-      if (!fullText.trim()) {
-        setStatus("No text layer found. Attempting OCR...");
-        fullText = "";
-        for (let i = 1; i <= pdf.numPages; i++) {
-          setStatus(`OCR on page ${i}...`);
-          const page = await pdf.getPage(i);
-          const viewport = page.getViewport({ scale: 2.0 });
-          const canvas = document.createElement("canvas");
-          const context = canvas.getContext("2d");
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
-          await page.render({ canvasContext: context, viewport }).promise;
-          const { data: { text } } = await Tesseract.recognize(canvas.toDataURL("image/png"), 'eng');
-          fullText += text + "\n";
-        }
-      }
-
-      if (fullText.trim()) {
-        // When uploading a PDF, we store it in the summary for now as raw text analysis
-        // because smart-parsing into individual fields is too unreliable.
-        updatePersonalInfo({ summary: fullText.trim() });
-        setMode("structured");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Failed to extract text.");
-    } finally {
-      setIsExtracting(false);
-      setStatus("");
-      e.target.value = "";
-    }
-  };
+const ResumeInputPanel = ({ handleImportFromBuilder, handleFileUpload, isExtracting, status, mode, setMode, resumeData, setResumeData, updatePersonalInfo, addItem, removeItem, updateItem , }) => {
 
   return (
     <div className="flex flex-col gap-6">

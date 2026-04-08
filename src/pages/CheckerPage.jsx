@@ -1,19 +1,33 @@
 import { AnimatePresence } from "framer-motion";
-import {  ResumeInputPanel, JobDescriptionPanel, RoleSelector, ATSResults, SearchIcon } from "../index";
-import { useATSChecker } from "../modules/ats-checker/hooks/useATSChecker";
+import { ResumeInputPanel, JobDescriptionPanel, RoleSelector, ATSResults, SearchIcon } from "../index";
+import { useAppStore } from "@/AppStore";
 
 const ATSCheckerPage = () => {
   const {
-    resumeData, updatePersonalInfo, 
-    addItem, removeItem, updateItem,
-    setResumeData,
-    jdText, setJdText,
-    role, setRole,
-    results, isAnalyzing,
-    handleAnalyze, handleReset
-  } = useATSChecker();
+    isExtracting,
+    status,
+    mode,
+    setMode,
+    handleImportFromBuilder,
+    handleFileUpload,
 
-  const hasData = resumeData.personalInfo.fullName || resumeData.personalInfo.summary || resumeData.experience.length > 0;
+    jdText,
+    setJdText,
+    role,
+    setRole,
+    results,
+    isAnalyzing,
+    handleAnalyze,
+    handleReset,
+    checkerData,
+    setCheckerData,
+    updateCheckerPersonalInfo,
+    addCheckerItem,
+    removeCheckerItem,
+    updateCheckerItem
+  } = useAppStore();
+
+  const hasData = checkerData.personalInfo.fullName || checkerData.personalInfo.summary || checkerData.experience.length > 0;
 
   return (
     <div className="flex flex-col gap-8 max-w-[1200px] mx-auto py-8">
@@ -25,20 +39,26 @@ const ATSCheckerPage = () => {
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
+
         {/* Input Column */}
         <div className="lg:col-span-5 flex flex-col gap-6 p-8 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
-          <ResumeInputPanel 
-            resumeData={resumeData} 
-            updatePersonalInfo={updatePersonalInfo}
-            addItem={addItem}
-            removeItem={removeItem}
-            updateItem={updateItem}
-            setResumeData={setResumeData}
+          <ResumeInputPanel
+            resumeData={checkerData}
+            updatePersonalInfo={updateCheckerPersonalInfo}
+            addItem={addCheckerItem}
+            removeItem={removeCheckerItem}
+            updateItem={updateCheckerItem}
+            setResumeData={setCheckerData}
+            isExtracting={isExtracting}
+            status={status}
+            mode={mode}
+            setMode={setMode}
+            handleImportFromBuilder={handleImportFromBuilder}
+            handleFileUpload={handleFileUpload} 
           />
           <JobDescriptionPanel jdText={jdText} setJdText={setJdText} />
           <RoleSelector role={role} setRole={setRole} />
-          
+
           <div className="flex gap-4 mt-4">
             <button
               onClick={handleReset}
