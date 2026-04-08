@@ -226,43 +226,46 @@ export const BriefcaseIcon = ({ className, size = 24 }) => {
         </svg>
     )
 }
-export const GraduationCapIcon = ({ className, size = 24 }) => {
+export const GraduationCapIcon = ({ className = "", size = 24 }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+      <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
+      <path d="M22 10v6" />
+    </svg>
+  );
+};
 
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width={size}
-            height={size}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={className}
-        >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-    )
-}
-export const CodeIcon = ({ className, size = 24 }) => {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width={size}
-            height={size}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={className}
-        >
-            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-        </svg>
-    )
-}
+export const CodeIcon = ({ className = "", size = 24 }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="m16 18 6-6-6-6" />
+      <path d="m8 6-6 6 6 6" />
+    </svg>
+  );
+};
 
 export const PlusIcon = ({ className, size = 24 }) => {
     return (

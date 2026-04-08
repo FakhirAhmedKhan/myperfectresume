@@ -1,6 +1,6 @@
 import { useAppStore } from "../../AppStore";
-import { BriefcaseIcon, GraduationCapIcon, CodeIcon, LayoutIcon, Input, Textarea, UserIcon, DynamicSection } from "../../index";
-import Section from "./FormSections";
+import { BriefcaseIcon, GraduationCapIcon, CodeIcon, Input, Textarea, UserIcon, DynamicSection } from "../../index";
+import { Section } from "./FormSections";
 
 const ResumeForm = () => {
   const {
@@ -100,6 +100,7 @@ const ResumeForm = () => {
               onChange={(e) => update({ position: e.target.value })}
             />
             <Input
+              type="date"
               className="md:col-span-2"
               label="Duration"
               value={item.date}
@@ -156,7 +157,7 @@ const ResumeForm = () => {
       {/* Projects */}
       <DynamicSection
         title="Projects"
-        icon={<LayoutIcon size={20} />}
+        icon={<BriefcaseIcon size={20} />}
         items={resumeData.projects}
         onAdd={() =>
           addItem("projects", { id: Date.now(), name: "", link: "", desc: "" })

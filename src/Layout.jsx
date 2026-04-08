@@ -17,20 +17,20 @@ const App = () => {
   return (
     <LazyMotion features={() => import("framer-motion").then(res => res.domAnimation)}>
       <AppProvider>
-        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-          <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
-            <NavBar currentPage={page} onPageChange={setPage} />
-            <main className="container mx-auto p-4 md:p-8">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+          <NavBar currentPage={page} onPageChange={setPage} />
+          <main className="container mx-auto p-4 md:p-8">
+            <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
               {pages[page]}
-            </main>
-            <footer className="py-12 border-t mt-auto text-center dark:border-gray-800">
-              <p className="text-gray-500 dark:text-gray-400 text-sm">
-                &copy; 2026 Smart Resume Studio. All rights reserved.
-              </p>
-            </footer>
-          </div>
-        </Suspense>
-      </AppProvider>
+            </Suspense>
+          </main>
+          <footer className="py-12 border-t mt-auto text-center dark:border-gray-800">
+            <p className="text-gray-500 dark:text-gray-400 text-sm">
+              &copy; 2026 Smart Resume Studio. All rights reserved.
+            </p>
+          </footer>
+        </div>
+      </AppProvider>  
     </LazyMotion>
   );
 };

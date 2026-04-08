@@ -32,7 +32,7 @@ const Navbar = ({ currentPage, onPageChange }) => {
         </span>
       </button>
 
-      <div className="hidden md:flex items-center gap-2 bg-gray-100 dark:bg-gray-900 p-1 rounded-full border">
+      <div className="hidden md:flex items-center justify-center gap-3  mr-60 bg-gray-100 dark:bg-gray-900 p-1 rounded-full border">
         {navLinks.map((link) => {
           const isActive = currentPage === link.id;
           const Icon = link.icon;

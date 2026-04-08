@@ -61,7 +61,7 @@ export const AppProvider = ({ children }) => {
   const addItem = (section, item) => {
     setResumeData((prev) => ({
       ...prev,
-      [section]: [...prev[section], item],
+      [section]: [...(prev[section] || []), item]
     }));
   };
 
