@@ -4,17 +4,21 @@ import { useATSChecker } from "../modules/ats-checker/hooks/useATSChecker";
 
 const ATSCheckerPage = () => {
   const {
-    resumeText, setResumeText,
+    resumeData, updatePersonalInfo, 
+    addItem, removeItem, updateItem,
+    setResumeData,
     jdText, setJdText,
     role, setRole,
     results, isAnalyzing,
     handleAnalyze, handleReset
   } = useATSChecker();
 
+  const hasData = resumeData.personalInfo.fullName || resumeData.personalInfo.summary || resumeData.experience.length > 0;
+
   return (
     <div className="flex flex-col gap-8 max-w-[1200px] mx-auto py-8">
       <header className="text-center mb-4">
-        <h1 className="text-4xl font-extrabold mb-4">Pro ATS Analyzer</h1>
+        <h1 className="text-4xl font-extrabold mb-4">Pro ATS Analyzer by AI powered </h1>
         <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
           Deep-scan your resume against industry standards and specific job descriptions. Maximize your chances of getting past the initial automated screening.
         </p>
@@ -24,21 +28,28 @@ const ATSCheckerPage = () => {
         
         {/* Input Column */}
         <div className="lg:col-span-5 flex flex-col gap-6 p-8 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
-          <ResumeInputPanel resumeText={resumeText} setResumeText={setResumeText} />
+          <ResumeInputPanel 
+            resumeData={resumeData} 
+            updatePersonalInfo={updatePersonalInfo}
+            addItem={addItem}
+            removeItem={removeItem}
+            updateItem={updateItem}
+            setResumeData={setResumeData}
+          />
           <JobDescriptionPanel jdText={jdText} setJdText={setJdText} />
           <RoleSelector role={role} setRole={setRole} />
           
           <div className="flex gap-4 mt-4">
             <button
               onClick={handleReset}
-              disabled={isAnalyzing || (!resumeText && !jdText && !results)}
+              disabled={isAnalyzing || (!hasData && !jdText && !results)}
               className="px-6 py-4 rounded-2xl font-bold bg-gray-100 text-gray-500 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition"
             >
               Reset
             </button>
             <button
               onClick={handleAnalyze}
-              disabled={isAnalyzing || !resumeText}
+              disabled={isAnalyzing || !hasData}
               className="flex-1 py-4 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-2xl font-bold flex items-center justify-center gap-3 transition-transform hover:scale-[1.01] shadow-lg shadow-blue-500/20"
             >
               {isAnalyzing ? (
