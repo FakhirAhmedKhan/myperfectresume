@@ -1,23 +1,16 @@
-import { useAppStore } from "../../AppStore";
 import { BriefcaseIcon, GraduationCapIcon, CodeIcon, Input, Textarea, UserIcon, DynamicSection } from "../../index";
 import { Section } from "./FormSections";
 
-const ResumeForm = () => {
-  const {
-    resumeData,
-    setResumeData,
-    updatePersonalInfo,
-    addItem,
-    removeItem,
-    updateItem,
-  } = useAppStore();
+const ResumeForm = ({ resumeData,
+  setResumeData,
+  addItem,
+  removeItem,
+  updateItem,
+  handlePersonalInfo }) => {
 
   if (!resumeData) return null;
 
-  const handlePersonalInfo = (e) => {
-    const { name, value } = e.target;
-    updatePersonalInfo({ [name]: value });
-  };
+
 
   return (
     <div className="flex flex-col gap-8 pb-32">

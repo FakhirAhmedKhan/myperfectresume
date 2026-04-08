@@ -4,9 +4,9 @@ export const HomePage = lazy(() => import("@/pages/HomePage"));
 export const NavBar = lazy(() => import("@/Navbar"));
 export const BuilderPage = lazy(() => import("@/pages/BuilderPage"));
 export const CheckerPage = lazy(() => import("@/pages/CheckerPage"));
-export const FeatureCard = lazy(() => import("@/modules/builder/components/common/FeatureCard"));
-export const Input = lazy(() => import("@/modules/builder/components/common/Input"));
-export const Textarea = lazy(() => import("@/modules/builder/components/common/Textarea"));
+export const FeatureCard = lazy(() => import("@/modules/builder/components/FeatureCard"));
+export const Input = lazy(() => import("@/modules/builder/components/Input"));
+export const Textarea = lazy(() => import("@/modules/builder/components/Textarea"));
 export const ModernTemplate = lazy(() => import("@/modules/builder/templates/ModernTemplate"));
 export const ProfessionalTemplate = lazy(() => import("@/modules/builder/templates/ProfessionalTemplate"));
 export const ResumeForm = lazy(() => import("@/modules/builder/ResumeForm"));
@@ -20,7 +20,7 @@ export const ScoreBreakdown = lazy(() => import("@/modules/ats-checker/component
 export const KeywordMatchPanel = lazy(() => import("@/modules/ats-checker/components/KeywordMatchPanel"));
 export const MissingSectionsPanel = lazy(() => import("@/modules/ats-checker/components/MissingSectionsPanel"));
 export const SuggestionsPanel = lazy(() => import("@/modules/ats-checker/components/SuggestionsPanel"));
-export const ContactItem = lazy(() => import("@/modules/builder/components/common/ContactItem"));
+export const ContactItem = lazy(() => import("@/modules/builder/components/ContactItem"));
 export const DynamicSection = lazy(() => import("@/modules/builder/FormSections"));
 const lazyIcon = (name) => lazy(() => import("./CustomIcons").then(module => ({ default: module[name] })));
 

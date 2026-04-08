@@ -3,7 +3,18 @@ import { useAppStore } from "../AppStore.jsx";
 import { DownloadIcon, EyeIcon, Edit3Icon, TrashIcon, ResumeForm, ResumePreview } from "../index.js";
 
 const BuilderPage = () => {
-  const { resumeData, resetData } = useAppStore();
+  const {
+    resumeData,
+    resetData,
+    updatePersonalInfo,
+    addItem,
+    removeItem,
+    updateItem,
+    setResumeData,
+  } = useAppStore();
+
+  const { personalInfo, experience, education, skills, projects } = resumeData;
+
   const [activeTab, setActiveTab] = useState("edit");
   const [template, setTemplate] = useState("professional");
   const [isExporting, setIsExporting] = useState(false);
@@ -17,15 +28,15 @@ const BuilderPage = () => {
         margin: 0,
         filename: `${resumeData.personalInfo.fullName || "Resume"}.pdf`,
         image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { 
-          scale: 3, 
+        html2canvas: {
+          scale: 3,
           useCORS: true,
           letterRendering: true,
           onclone: (clonedDoc) => {
             const el = clonedDoc.getElementById("resume-preview-content");
             if (el) {
               el.classList.add("pdf-export-mode");
-              
+
               // Recursive sanitization of oklch colors
               const sanitizeElements = (node) => {
                 if (node.nodeType === 1) { // Element node
@@ -57,6 +68,10 @@ const BuilderPage = () => {
     } finally {
       setIsExporting(false);
     }
+  };
+  const handlePersonalInfo = (e) => {
+    const { name, value } = e.target;
+    updatePersonalInfo({ [name]: value });
   };
 
   return (
@@ -121,13 +136,29 @@ const BuilderPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
         {/* Editor Column */}
         <div className={`md:col-span-5 ${activeTab === 'preview' ? 'hidden md:block' : 'block'}`}>
-          <ResumeForm />
+          <ResumeForm
+            resumeData={resumeData}
+            setResumeData={setResumeData}
+            updatePersonalInfo={updatePersonalInfo}
+            addItem={addItem}
+            removeItem={removeItem}
+            updateItem={updateItem}
+            handlePersonalInfo={handlePersonalInfo}
+          />
         </div>
 
         {/* Preview Column */}
         <div className={`md:col-span-7 ${activeTab === 'edit' ? 'hidden md:block' : 'block'} sticky top-24`}>
           <div className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden min-h-[85vh]">
-            <ResumePreview templateId={template} />
+            <ResumePreview templateId={template}
+              personalInfo={personalInfo}
+              experience={experience}
+              education={education}
+              skills={skills}
+              projects={projects}
+              resumeData={resumeData}
+              handlePersonalInfo={handlePersonalInfo}
+            />
           </div>
         </div>
 

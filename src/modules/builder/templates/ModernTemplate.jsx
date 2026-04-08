@@ -1,6 +1,6 @@
 import { MailIcon, PhoneIcon, MapPinIcon } from "../../../index";
 
-const ModernTemplate = ({ personalInfo, experience, education, skills }) => (
+const ModernTemplate = ({ personalInfo = { fullName: "", title: "", email: "", phone: "", location: "", summary: "" }, experience = [], education = [], skills = [] }) => (
     <div id="resume-preview-content" className="flex flex-col md:flex-row bg-white text-gray-900 min-h-[1100px] shadow-2xl font-sans">
         {/* Modern Sidebar */}
         <div className="w-full md:w-1/3 bg-gray-900 text-white p-8">

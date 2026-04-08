@@ -1,6 +1,6 @@
-import { MailIcon, PhoneIcon, MapPinIcon ,ContactItem} from "../../../index";
+import { MailIcon, PhoneIcon, MapPinIcon, ContactItem } from "../../../index";
 
-const ProfessionalTemplate = ({ personalInfo, experience, education, skills, projects }) => (
+const ProfessionalTemplate = ({ personalInfo = {}, experience = [], education = [], skills = [], projects = [] }) => (
     <div id="resume-preview-content" className="p-12 bg-white text-gray-900 min-h-[1056px] shadow-2xl font-serif">
         <header className="text-center mb-10 border-b-2 border-gray-900 pb-8">
             <h1 className="text-4xl font-extrabold tracking-tight mb-2 uppercase">{personalInfo.fullName || "Your Name"}</h1>
@@ -19,7 +19,7 @@ const ProfessionalTemplate = ({ personalInfo, experience, education, skills, pro
             </section>
         )}
 
-        {experience.length > 0 && (
+        {experience?.length > 0 && (
             <section className="mb-10">
                 <h2 className="text-lg font-bold border-b border-gray-400 mb-4 uppercase tracking-widest">Work Experience</h2>
                 <div className="flex flex-col gap-6">
@@ -39,7 +39,7 @@ const ProfessionalTemplate = ({ personalInfo, experience, education, skills, pro
             </section>
         )}
 
-        {education.length > 0 && (
+        {education?.length > 0 && (
             <section className="mb-10">
                 <h2 className="text-lg font-bold border-b border-gray-400 mb-4 uppercase tracking-widest">Education</h2>
                 <div className="flex flex-col gap-4">
@@ -56,7 +56,7 @@ const ProfessionalTemplate = ({ personalInfo, experience, education, skills, pro
             </section>
         )}
 
-        {projects.length > 0 && (
+        {projects?.length > 0 && (
             <section className="mb-10">
                 <h2 className="text-lg font-bold border-b border-gray-400 mb-4 uppercase tracking-widest">Projects</h2>
                 <div className="flex flex-col gap-4">
@@ -71,7 +71,7 @@ const ProfessionalTemplate = ({ personalInfo, experience, education, skills, pro
             </section>
         )}
 
-        {skills.length > 0 && (
+        {skills?.length > 0 && (
             <section>
                 <h2 className="text-lg font-bold border-b border-gray-400 mb-4 uppercase tracking-widest">Key Skills</h2>
                 <div className="flex flex-wrap gap-x-6 gap-y-2">
