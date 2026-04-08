@@ -2,7 +2,7 @@ import {
   extractBulletLines,
   findQuantifiedBullets,
   findActionVerbBullets,
-} from "../configs/bulletAnalysis";
+} from "../bulletAnalysis";
 
 export const calculateImpactScore = (resumeText) => {
   const bulletLines = extractBulletLines(resumeText);

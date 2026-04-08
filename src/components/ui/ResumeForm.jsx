@@ -4,7 +4,7 @@ import { useCvBuilder } from "../../configs/useCvBuilder.js";
 
 const ResumeForm = () => {
   const { CVBuilder } = useCvBuilder();
-  const { resumeData, addItem, removeItem, updateItem, handlePersonalInfo } = CVBuilder;
+  const { resumeData, setResumeData, addItem, removeItem, updateItem, handlePersonalInfo } = CVBuilder;
   if (!resumeData) return null;
 
   return (

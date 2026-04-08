@@ -1,4 +1,4 @@
-import { compareJDKeywords } from "../configs/keywordHelpers";
+import { compareJDKeywords } from "../keywordHelpers";
 
 export const calculateJDMatchScore = (resumeText, jdText) => {
   if (!jdText || jdText.trim().length < 50) {

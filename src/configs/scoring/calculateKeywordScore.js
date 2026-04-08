@@ -1,4 +1,4 @@
-import { checkRoleKeywords } from "../configs/keywordHelpers";
+import { checkRoleKeywords } from "../keywordHelpers";
 
 export const calculateKeywordScore = (resumeText, role) => {
   const { found, missing } = checkRoleKeywords(resumeText, role);

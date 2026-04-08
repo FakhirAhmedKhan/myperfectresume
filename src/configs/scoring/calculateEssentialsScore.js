@@ -1,4 +1,4 @@
-import { extractContactInfo } from "../configs/normalizeText";
+import { extractContactInfo } from "../normalizeText";
 
 export const calculateEssentialsScore = (resumeText) => {
   const { hasEmail, hasPhone, hasLinkedIn } = extractContactInfo(resumeText);

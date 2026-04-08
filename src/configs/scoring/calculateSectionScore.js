@@ -1,4 +1,4 @@
-import { detectSections } from "../configs/sectionHelpers";
+import { detectSections } from "../sectionHelpers";
 
 export const calculateSectionScore = (resumeText) => {
   const { foundSections, missingSections } = detectSections(resumeText);

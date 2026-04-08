@@ -1,57 +1,37 @@
 import { lazy } from "react";
 
-export const HomePage = lazy(() => import("@/pages/HomePage"));
+export const HomePage = lazy(() => import("@/components/HomePage"));
 export const NavBar = lazy(() => import("@/Navbar"));
-export const BuilderPage = lazy(() => import("@/pages/BuilderPage"));
-export const CheckerPage = lazy(() => import("@/pages/CheckerPage"));
-export const FeatureCard = lazy(
-  () => import("@/components/CVBuildUi/FeatureCard"),
-);
-export const Input = lazy(() => import("@/components/CVBuildUi/Input"));
-export const Textarea = lazy(() => import("@/components/CVBuildUi/Textarea"));
+export const BuilderPage = lazy(() => import("@/components/BuilderPage"));
+export const CheckerPage = lazy(() => import("@/components/CheckerPage"));
 export const ModernTemplate = lazy(() => import("@/templates/ModernTemplate"));
 export const ProfessionalTemplate = lazy(
   () => import("@/templates/ProfessionalTemplate"),
 );
-export const ResumeForm = lazy(
-  () => import("@/components/CVBuildUi/ResumeForm"),
-);
-export const ResumePreview = lazy(
-  () => import("@/components/CVBuildUi/ResumePreview"),
-);
-export const ResumeInputPanel = lazy(
-  () => import("@/components/AtcCheckerUi/ResumeInputPanel"),
-);
-export const JobDescriptionPanel = lazy(
-  () => import("@/components/AtcCheckerUi/JobDescriptionPanel"),
-);
-export const RoleSelector = lazy(
-  () => import("@/components/AtcCheckerUi/RoleSelector"),
-);
-export const ATSResults = lazy(
-  () => import("@/components/AtcCheckerUi/ATSResults"),
-);
-export const ScoreCard = lazy(
-  () => import("@/components/AtcCheckerUi/ScoreCard"),
-);
-export const ScoreBreakdown = lazy(
-  () => import("@/components/AtcCheckerUi/ScoreBreakdown"),
-);
-export const KeywordMatchPanel = lazy(
-  () => import("@/components/AtcCheckerUi/KeywordMatchPanel"),
-);
-export const MissingSectionsPanel = lazy(
-  () => import("@/components/AtcCheckerUi/MissingSectionsPanel"),
-);
-export const SuggestionsPanel = lazy(
-  () => import("@/components/AtcCheckerUi/SuggestionsPanel"),
-);
-export const ContactItem = lazy(
-  () => import("@/components/CVBuildUi/ContactItem"),
-);
-export const DynamicSection = lazy(
-  () => import("@/components/CVBuildUi/FormSections"),
-);
+const uiLazy = (path) => lazy(() => import(`./components/ui/${path}`));
+
+export const ResultsColumn = uiLazy("ResultsColumn.jsx");
+export const InputColumn = uiLazy("InputColumn.jsx");
+export const BuildPageHeader = uiLazy("BuildPageHeader.jsx");
+export const MobileTabToggle = uiLazy("MobileTabToggle.jsx");
+export const HeroSection = uiLazy("HeroSection.jsx");
+export const FeatureHighlights = uiLazy("FeatureHighlights.jsx");
+export const FeatureCard = uiLazy("FeatureCard.jsx");
+export const Input = uiLazy("Input.jsx");
+export const Textarea = uiLazy("Textarea.jsx");
+export const ResumeForm = uiLazy("ResumeForm.jsx");
+export const ResumePreview = uiLazy("ResumePreview.jsx");
+export const ResumeInputPanel = uiLazy("ResumeInputPanel.jsx");
+export const JobDescriptionPanel = uiLazy("JobDescriptionPanel.jsx");
+export const RoleSelector = uiLazy("RoleSelector.jsx");
+export const ATSResults = uiLazy("ATSResults.jsx");
+export const ScoreCard = uiLazy("ScoreCard.jsx");
+export const ScoreBreakdown = uiLazy("ScoreBreakdown.jsx");
+export const KeywordMatchPanel = uiLazy("KeywordMatchPanel.jsx");
+export const MissingSectionsPanel = uiLazy("MissingSectionsPanel.jsx");
+export const SuggestionsPanel = uiLazy("SuggestionsPanel.jsx");
+export const ContactItem = uiLazy("ContactItem.jsx");
+export const DynamicSection = uiLazy("FormSections.jsx");
 
 const lazyIcon = (name) =>
   lazy(() =>

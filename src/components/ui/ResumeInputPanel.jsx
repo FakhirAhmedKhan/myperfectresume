@@ -1,5 +1,5 @@
 import { FileTextIcon, DownloadIcon, LayoutIcon, BriefcaseIcon, GraduationCapIcon, CodeIcon, Input, Textarea, UserIcon } from "../../index";
-import { Section, DynamicSection } from "../CVBuildUi/FormSections";
+import { Section, DynamicSection } from "./FormSections";
 import * as pdfjs from "pdfjs-dist";
 import pdfjsWorker from "pdfjs-dist/build/pdf.worker.mjs?url";
 import { useCvChecker } from "@/configs/useCvChecker";

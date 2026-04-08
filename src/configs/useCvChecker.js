@@ -1,15 +1,16 @@
-import { useState } from "react";
+import React, { useState, createContext, useContext } from "react";
 import * as pdfjs from "pdfjs-dist";
 import pdfjsWorker from "pdfjs-dist/build/pdf.worker.mjs?url";
 import Tesseract from "tesseract.js";
-import { calculateATSScore } from "../scoring/calculateATSScore";
-// import { flattenResume } from "../modules/shared/utils/resumeHelpers";
+import { calculateATSScore } from "./scoring/calculateATSScore";
 import { initialResumeData } from "./initialResumeData";
 import { flattenResume } from "./resumeHelpers";
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
-export const useCvChecker = () => {
+const CvCheckerContext = createContext();
+
+export const CvCheckerProvider = ({ children }) => {
   const [checkerData, setCheckerData] = useState(initialResumeData);
   const [jdText, setJdText] = useState("");
   const [role, setRole] = useState("general");
@@ -17,7 +18,7 @@ export const useCvChecker = () => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [isExtracting, setIsExtracting] = useState(false);
   const [status, setStatus] = useState("");
-  const [mode, setMode] = useState("row");
+  const [mode, setMode] = useState("structured");
 
   const updateCheckerPersonalInfo = (info) => {
     setCheckerData((prev) => ({
@@ -50,10 +51,13 @@ export const useCvChecker = () => {
   };
 
   const handleAnalyze = () => {
+    if (!checkerData || !checkerData.personalInfo) return;
     const text = flattenResume(checkerData);
 
     if (!text || text.length < 50) {
-      alert("Please provide more detailed information for analysis.");
+      alert(
+        "Please provide more detailed information for analysis (at least 50 characters).",
+      );
       return;
     }
 
@@ -71,12 +75,23 @@ export const useCvChecker = () => {
     setJdText("");
     setRole("general");
     setResults(null);
-    setMode("row");
+    setMode("structured");
   };
 
-  const handleImportFromBuilder = (resumeData) => {
-    setCheckerData({ ...resumeData });
-    setMode("row");
+  const handleImportFromBuilder = () => {
+    const STORAGE_KEY = "smart-resume-studio-data";
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        setCheckerData({ ...initialResumeData, ...parsed });
+        setMode("structured");
+      } catch (err) {
+        console.error("Failed to import data:", err);
+      }
+    } else {
+      alert("No builder data found to sync.");
+    }
   };
 
   const handleFileUpload = async (e) => {
@@ -130,7 +145,7 @@ export const useCvChecker = () => {
 
       if (fullText.trim()) {
         updateCheckerPersonalInfo({ summary: fullText.trim() });
-        setMode("row");
+        setMode("raw");
       }
     } catch (error) {
       console.error(error);
@@ -141,12 +156,13 @@ export const useCvChecker = () => {
       e.target.value = "";
     }
   };
-  const hasData =
-    checkerData.personalInfo.fullName ||
-    checkerData.personalInfo.summary ||
-    checkerData.experience.length > 0;
 
-  return {
+  const hasData =
+    checkerData?.personalInfo?.fullName ||
+    checkerData?.personalInfo?.summary ||
+    (checkerData?.experience?.length || 0) > 0;
+
+  const value = {
     CvChecker: {
       hasData,
       checkerData,
@@ -171,4 +187,14 @@ export const useCvChecker = () => {
       handleFileUpload,
     },
   };
+
+  return React.createElement(CvCheckerContext.Provider, { value }, children);
+};
+
+export const useCvChecker = () => {
+  const context = useContext(CvCheckerContext);
+  if (context === undefined) {
+    throw new Error("useCvChecker must be used within a CvCheckerProvider");
+  }
+  return context;
 };

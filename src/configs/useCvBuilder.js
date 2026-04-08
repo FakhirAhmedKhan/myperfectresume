@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext, useContext } from "react";
 import { initialResumeData } from "./initialResumeData";
 
 const STORAGE_KEY = "smart-resume-studio-data";
 
-export const useCvBuilder = () => {
+const CvBuilderContext = createContext();
+
+export const CvBuilderProvider = ({ children }) => {
   const [activeTab, setActiveTab] = useState("edit");
   const [template, setTemplate] = useState("professional");
   const [isExporting, setIsExporting] = useState(false);
@@ -130,7 +132,7 @@ export const useCvBuilder = () => {
     }
   };
 
-  return {
+  const value = {
     CVBuilder: {
       activeTab,
       setActiveTab,
@@ -148,4 +150,14 @@ export const useCvBuilder = () => {
       handleDownload,
     },
   };
+
+  return React.createElement(CvBuilderContext.Provider, { value }, children);
+};
+
+export const useCvBuilder = () => {
+  const context = useContext(CvBuilderContext);
+  if (context === undefined) {
+    throw new Error("useCvBuilder must be used within a CvBuilderProvider");
+  }
+  return context;
 };
