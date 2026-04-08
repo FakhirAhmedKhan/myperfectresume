@@ -1,7 +1,10 @@
-import { MailIcon, PhoneIcon, MapPinIcon, ContactItem } from "../../../index";
+import { MailIcon, PhoneIcon, MapPinIcon, ContactItem } from "../index";
+import { useCvBuilder } from "@/configs/useCvBuilder";
 
-const ProfessionalTemplate = ({ personalInfo = {}, experience = [], education = [], skills = [], projects = [] }) => (
-    <div id="resume-preview-content" className="p-12 bg-white text-gray-900 min-h-[1056px] shadow-2xl font-serif">
+const ProfessionalTemplate = () => {
+    const { CVBuilder } = useCvBuilder();
+    const { personalInfo = {}, experience = [], education = [], projects = [], skills = [] } = CVBuilder?.resumeData || {};
+    return (<div id="resume-preview-content" className="p-12 bg-white text-gray-900 min-h-[1056px] shadow-2xl font-serif">
         <header className="text-center mb-10 border-b-2 border-gray-900 pb-8">
             <h1 className="text-4xl font-extrabold tracking-tight mb-2 uppercase">{personalInfo.fullName || "Your Name"}</h1>
             <p className="text-xl text-gray-700 font-medium italic mb-4">{personalInfo.title || "Target Job Title"}</p>
@@ -84,7 +87,7 @@ const ProfessionalTemplate = ({ personalInfo = {}, experience = [], education = 
                 </div>
             </section>
         )}
-    </div>
-);
+    </div>)
+};
 
 export default ProfessionalTemplate;

@@ -1,7 +1,7 @@
-import { BriefcaseIcon } from "../../../index";
-import { mockJobDescription } from "../data/mockJobDescription";
+import { BriefcaseIcon } from "../../index";
+import { mockJobDescription } from "../../configs/mockJobDescription";
 
- const JobDescriptionPanel = ({ jdText, setJdText }) => {
+const JobDescriptionPanel = ({ jdText, setJdText }) => {
   return (
     <div className="flex flex-col gap-4 mt-6">
       <div className="flex items-center justify-between mb-2">
@@ -9,7 +9,7 @@ import { mockJobDescription } from "../data/mockJobDescription";
           <BriefcaseIcon className="text-purple-600" />
           <h3 className="text-xl font-bold">Job Description <span className="text-xs text-gray-400 font-normal ml-2">(Optional)</span></h3>
         </div>
-        <button 
+        <button
           onClick={() => setJdText(mockJobDescription.trim())}
           className="text-xs font-bold text-purple-500 hover:text-purple-700 underline underline-offset-4"
         >

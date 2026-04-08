@@ -1,4 +1,4 @@
-import { CodeIcon } from "../../../index";
+import { CodeIcon } from "../../index";
 
 const PillList = ({ items, colorClass }) => {
   if (!items || items.length === 0) return <span className="text-xs text-gray-400 italic">None</span>;
@@ -13,7 +13,7 @@ const PillList = ({ items, colorClass }) => {
   );
 };
 
- const KeywordMatchPanel = ({ found, missing, isJDMode, matchedJD, missingJD }) => {
+const KeywordMatchPanel = ({ found, missing, isJDMode, matchedJD, missingJD }) => {
   return (
     <div className="p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col gap-6">
       <h3 className="text-xl font-bold flex items-center gap-2">

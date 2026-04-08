@@ -1,13 +1,27 @@
-import { useState } from "react";
-import { FileTextIcon, DownloadIcon, LayoutIcon, BriefcaseIcon, GraduationCapIcon, CodeIcon, Input, Textarea, UserIcon } from "../../../index";
-import { Section, DynamicSection } from "../../builder/FormSections";
+import { FileTextIcon, DownloadIcon, LayoutIcon, BriefcaseIcon, GraduationCapIcon, CodeIcon, Input, Textarea, UserIcon } from "../../index";
+import { Section, DynamicSection } from "../CVBuildUi/FormSections";
 import * as pdfjs from "pdfjs-dist";
 import pdfjsWorker from "pdfjs-dist/build/pdf.worker.mjs?url";
+import { useCvChecker } from "@/configs/useCvChecker";
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
-const ResumeInputPanel = ({ handleImportFromBuilder, handleFileUpload, isExtracting, status, mode, setMode, resumeData, setResumeData, updatePersonalInfo, addItem, removeItem, updateItem , }) => {
-
+const ResumeInputPanel = () => {
+  const { CvChecker } = useCvChecker();
+  const {
+    mode,
+    setMode,
+    handleImportFromBuilder,
+    handleFileUpload,
+    isExtracting,
+    status,
+    checkerData: resumeData = { personalInfo: {}, experience: [], education: [], skills: [] },
+    setCheckerData: setResumeData,
+    updateCheckerPersonalInfo: updatePersonalInfo,
+    addCheckerItem: addItem,
+    removeCheckerItem: removeItem,
+    updateCheckerItem: updateItem
+  } = CvChecker || {};
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
@@ -94,7 +108,7 @@ const ResumeInputPanel = ({ handleImportFromBuilder, handleFileUpload, isExtract
             <Section title="Skills" icon={<CodeIcon size={18} />}>
               <Textarea
                 placeholder="React, Java, Teamwork..."
-                value={resumeData.skills.join(", ")}
+                value={resumeData.skills?.join(", ")}
                 onChange={(e) => setResumeData(prev => ({ ...prev, skills: e.target.value.split(",").map(s => s.trim()) }))}
               />
             </Section>

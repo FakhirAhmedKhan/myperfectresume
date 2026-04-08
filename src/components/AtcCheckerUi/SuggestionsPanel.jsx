@@ -1,6 +1,6 @@
-import { CheckCircle2Icon, AlertCircleIcon } from "../../../index";
+import { CheckCircle2Icon, AlertCircleIcon } from "../../index";
 
- const SuggestionsPanel = ({ suggestions, strengths }) => {
+const SuggestionsPanel = ({ suggestions, strengths }) => {
   return (
     <div className="flex flex-col gap-6 p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm">
       <h3 className="text-xl font-bold flex items-center gap-2">
@@ -30,7 +30,7 @@ import { CheckCircle2Icon, AlertCircleIcon } from "../../../index";
           ))}
         </div>
       )}
-      
+
       {suggestions?.length === 0 && (
         <div className="p-4 text-center text-gray-500 text-sm">
           No major issues found!

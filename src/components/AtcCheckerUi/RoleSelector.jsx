@@ -1,12 +1,12 @@
-import { ROLE_KEYWORDS } from "../config/roleKeywords";
+import { ROLE_KEYWORDS } from "../../configs/roleKeywords";
 
- const RoleSelector = ({ role, setRole }) => {
+const RoleSelector = ({ role, setRole }) => {
   const roles = Object.keys(ROLE_KEYWORDS);
 
   return (
     <div className="flex flex-col gap-2 mt-6">
       <label className="text-sm font-bold text-gray-600 dark:text-gray-400">Target Role Focus</label>
-      <select 
+      <select
         value={role}
         onChange={(e) => setRole(e.target.value)}
         className="w-full p-4 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 outline-none focus:ring-2 focus:ring-blue-500 capitalize"

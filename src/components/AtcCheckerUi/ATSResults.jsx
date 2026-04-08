@@ -1,7 +1,7 @@
 import { m } from "framer-motion";
-import { ScoreCard, ScoreBreakdown, KeywordMatchPanel, MissingSectionsPanel, SuggestionsPanel } from "../../../index";
+import { ScoreCard, ScoreBreakdown, KeywordMatchPanel, MissingSectionsPanel, SuggestionsPanel } from "../../index";
 
- const ATSResults = ({ results, isJDMode }) => {
+const ATSResults = ({ results, isJDMode }) => {
   if (!results) return null;
 
   return (
@@ -18,17 +18,17 @@ import { ScoreCard, ScoreBreakdown, KeywordMatchPanel, MissingSectionsPanel, Sug
 
       <MissingSectionsPanel missingSections={results.missingSections} />
 
-      <KeywordMatchPanel 
-        found={results.foundKeywords} 
+      <KeywordMatchPanel
+        found={results.foundKeywords}
         missing={results.missingKeywords}
         isJDMode={isJDMode}
         matchedJD={results.matchedJDKeywords}
         missingJD={results.missingJDKeywords}
       />
 
-      <SuggestionsPanel 
-        suggestions={results.suggestions} 
-        strengths={results.strengths} 
+      <SuggestionsPanel
+        suggestions={results.suggestions}
+        strengths={results.strengths}
       />
     </m.div>
   );

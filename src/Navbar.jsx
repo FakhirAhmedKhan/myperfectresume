@@ -1,4 +1,4 @@
-import { useAppStore } from "./AppStore.jsx";
+import { useTheme } from "./configs/useTheme.js";
 import { CpuIcon, FileTextIcon, HomeIcon, LayoutIcon, MoonIcon, SunIcon } from "./index";
 
 export function cn(...inputs) {
@@ -10,7 +10,7 @@ export function cn(...inputs) {
 }
 
 const Navbar = ({ currentPage, onPageChange }) => {
-  const { theme, toggleTheme } = useAppStore();
+  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { name: "Home", id: "home", icon: HomeIcon },

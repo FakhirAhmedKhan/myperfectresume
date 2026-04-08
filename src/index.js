@@ -4,25 +4,59 @@ export const HomePage = lazy(() => import("@/pages/HomePage"));
 export const NavBar = lazy(() => import("@/Navbar"));
 export const BuilderPage = lazy(() => import("@/pages/BuilderPage"));
 export const CheckerPage = lazy(() => import("@/pages/CheckerPage"));
-export const FeatureCard = lazy(() => import("@/modules/builder/components/FeatureCard"));
-export const Input = lazy(() => import("@/modules/builder/components/Input"));
-export const Textarea = lazy(() => import("@/modules/builder/components/Textarea"));
-export const ModernTemplate = lazy(() => import("@/modules/builder/templates/ModernTemplate"));
-export const ProfessionalTemplate = lazy(() => import("@/modules/builder/templates/ProfessionalTemplate"));
-export const ResumeForm = lazy(() => import("@/modules/builder/ResumeForm"));
-export const ResumePreview = lazy(() => import("@/modules/builder/ResumePreview"));
-export const ResumeInputPanel = lazy(() => import("@/modules/ats-checker/components/ResumeInputPanel"));
-export const JobDescriptionPanel = lazy(() => import("@/modules/ats-checker/components/JobDescriptionPanel"));
-export const RoleSelector = lazy(() => import("@/modules/ats-checker/components/RoleSelector"));
-export const ATSResults = lazy(() => import("@/modules/ats-checker/components/ATSResults"));
-export const ScoreCard = lazy(() => import("@/modules/ats-checker/components/ScoreCard"));
-export const ScoreBreakdown = lazy(() => import("@/modules/ats-checker/components/ScoreBreakdown"));
-export const KeywordMatchPanel = lazy(() => import("@/modules/ats-checker/components/KeywordMatchPanel"));
-export const MissingSectionsPanel = lazy(() => import("@/modules/ats-checker/components/MissingSectionsPanel"));
-export const SuggestionsPanel = lazy(() => import("@/modules/ats-checker/components/SuggestionsPanel"));
-export const ContactItem = lazy(() => import("@/modules/builder/components/ContactItem"));
-export const DynamicSection = lazy(() => import("@/modules/builder/FormSections"));
-const lazyIcon = (name) => lazy(() => import("./CustomIcons").then(module => ({ default: module[name] })));
+export const FeatureCard = lazy(
+  () => import("@/components/CVBuildUi/FeatureCard"),
+);
+export const Input = lazy(() => import("@/components/CVBuildUi/Input"));
+export const Textarea = lazy(() => import("@/components/CVBuildUi/Textarea"));
+export const ModernTemplate = lazy(() => import("@/templates/ModernTemplate"));
+export const ProfessionalTemplate = lazy(
+  () => import("@/templates/ProfessionalTemplate"),
+);
+export const ResumeForm = lazy(
+  () => import("@/components/CVBuildUi/ResumeForm"),
+);
+export const ResumePreview = lazy(
+  () => import("@/components/CVBuildUi/ResumePreview"),
+);
+export const ResumeInputPanel = lazy(
+  () => import("@/components/AtcCheckerUi/ResumeInputPanel"),
+);
+export const JobDescriptionPanel = lazy(
+  () => import("@/components/AtcCheckerUi/JobDescriptionPanel"),
+);
+export const RoleSelector = lazy(
+  () => import("@/components/AtcCheckerUi/RoleSelector"),
+);
+export const ATSResults = lazy(
+  () => import("@/components/AtcCheckerUi/ATSResults"),
+);
+export const ScoreCard = lazy(
+  () => import("@/components/AtcCheckerUi/ScoreCard"),
+);
+export const ScoreBreakdown = lazy(
+  () => import("@/components/AtcCheckerUi/ScoreBreakdown"),
+);
+export const KeywordMatchPanel = lazy(
+  () => import("@/components/AtcCheckerUi/KeywordMatchPanel"),
+);
+export const MissingSectionsPanel = lazy(
+  () => import("@/components/AtcCheckerUi/MissingSectionsPanel"),
+);
+export const SuggestionsPanel = lazy(
+  () => import("@/components/AtcCheckerUi/SuggestionsPanel"),
+);
+export const ContactItem = lazy(
+  () => import("@/components/CVBuildUi/ContactItem"),
+);
+export const DynamicSection = lazy(
+  () => import("@/components/CVBuildUi/FormSections"),
+);
+
+const lazyIcon = (name) =>
+  lazy(() =>
+    import("./CustomIcons").then((module) => ({ default: module[name] })),
+  );
 
 // icons
 export const UserIcon = lazyIcon("UserIcon");

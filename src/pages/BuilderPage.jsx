@@ -1,112 +1,25 @@
-import { useState } from "react";
-import { useAppStore } from "../AppStore.jsx";
-import { DownloadIcon, EyeIcon, Edit3Icon, TrashIcon, ResumeForm, ResumePreview } from "../index.js";
+import { ResumeForm, ResumePreview } from "../index.js";
+import BuildPageHeader from "@/components/CVBuildUi/BuildPageHeader.jsx";
+import MobileTabToggle from "@/components/CVBuildUi/MobileTabToggle.jsx";
+import { useCvBuilder } from "../configs/useCvBuilder.js";
 
 const BuilderPage = () => {
-  const {
-    resumeData,
-    resetData,
-    updatePersonalInfo,
-    addItem,
-    removeItem,
-    updateItem,
-    setResumeData,
-    handleDownload,
-    isExporting,
-    template,
-    setTemplate,
-    activeTab,
-    setActiveTab,
-    handlePersonalInfo,
-  } = useAppStore();
-
-  const { personalInfo, experience, education, skills, projects } = resumeData;
-
+  const { CVBuilder } = useCvBuilder();
   return (
     <div className="flex flex-col gap-6">
-      <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 py-6 border-b dark:border-gray-800">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Smart CV Builder</h1>
-          <p className="text-gray-500 dark:text-gray-400">Design your perfect professional resume</p>
-        </div>
-        <div className="flex items-center gap-2">
-          {/* Template Selector */}
-          <div className="hidden lg:flex items-center gap-1 p-1 bg-gray-100 dark:bg-gray-800 rounded-xl mr-2">
-            <button
-              onClick={() => setTemplate("professional")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider ${template === 'professional' ? 'bg-white dark:bg-gray-700 shadow-sm' : 'text-gray-500'}`}
-            >Professional</button>
-            <button
-              onClick={() => setTemplate("modern")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider ${template === 'modern' ? 'bg-white dark:bg-gray-700 shadow-sm' : 'text-gray-500'}`}
-            >Modern</button>
-          </div>
-          <button
-            onClick={resetData}
 
-            className="p-3 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-colors border border-transparent hover:border-red-200"
-            title="Reset All Data"
-          >
-            <TrashIcon size={20} />
-          </button>
-          <button
-            onClick={handleDownload}
-            disabled={isExporting}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:opacity-75 disabled:cursor-wait text-white rounded-xl font-semibold shadow-lg shadow-blue-500/20 flex items-center gap-2 transition-all hover:scale-[1.02]"
-          >
-            {isExporting ? (
-              <><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Exporting...</>
-            ) : (
-              <><DownloadIcon size={20} /> Download PDF</>
-            )}
-          </button>
-        </div>
-      </header>
+      <BuildPageHeader />
 
-      {/* Mobile Tab Toggle */}
-      <div className="md:hidden flex p-1 bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800">
-        <button
-          onClick={() => setActiveTab("edit")}
-          className={`flex-1 py-3 rounded-lg font-medium flex items-center justify-center gap-2 ${activeTab === 'edit' ? 'bg-white dark:bg-gray-800 shadow-sm text-blue-600' : 'text-gray-500'}`}
-        >
-          <Edit3Icon size={18} />
-          Editor
-        </button>
-        <button
-          onClick={() => setActiveTab("preview")}
-          className={`flex-1 py-3 rounded-lg font-medium flex items-center justify-center gap-2 ${activeTab === 'preview' ? 'bg-white dark:bg-gray-800 shadow-sm text-blue-600' : 'text-gray-500'}`}
-        >
-          <EyeIcon size={18} />
-          Preview
-        </button>
-      </div>
+      <MobileTabToggle />
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-        {/* Editor Column */}
-        <div className={`md:col-span-5 ${activeTab === 'preview' ? 'hidden md:block' : 'block'}`}>
-          <ResumeForm
-            resumeData={resumeData}
-            setResumeData={setResumeData}
-            updatePersonalInfo={updatePersonalInfo}
-            addItem={addItem}
-            removeItem={removeItem}
-            updateItem={updateItem}
-            handlePersonalInfo={handlePersonalInfo}
-          />
+        <div className={`md:col-span-5 ${CVBuilder.activeTab === 'preview' ? 'hidden md:block' : 'block'}`}>
+          <ResumeForm />
         </div>
 
-        {/* Preview Column */}
-        <div className={`md:col-span-7 ${activeTab === 'edit' ? 'hidden md:block' : 'block'} sticky top-24`}>
+        <div className={`md:col-span-7 ${CVBuilder.activeTab === 'edit' ? 'hidden md:block' : 'block'} sticky top-24`}>
           <div className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl overflow-hidden min-h-[85vh]">
-            <ResumePreview templateId={template}
-              personalInfo={personalInfo}
-              experience={experience}
-              education={education}
-              skills={skills}
-              projects={projects}
-              resumeData={resumeData}
-              handlePersonalInfo={handlePersonalInfo}
-            />
+            <ResumePreview />
           </div>
         </div>
 

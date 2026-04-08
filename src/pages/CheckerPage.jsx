@@ -1,33 +1,10 @@
 import { AnimatePresence } from "framer-motion";
 import { ResumeInputPanel, JobDescriptionPanel, RoleSelector, ATSResults, SearchIcon } from "../index";
-import { useAppStore } from "@/AppStore";
+import { useCvChecker } from "@/configs/useCvChecker";
 
 const ATSCheckerPage = () => {
-  const {
-    isExtracting,
-    status,
-    mode,
-    setMode,
-    handleImportFromBuilder,
-    handleFileUpload,
-
-    jdText,
-    setJdText,
-    role,
-    setRole,
-    results,
-    isAnalyzing,
-    handleAnalyze,
-    handleReset,
-    checkerData,
-    setCheckerData,
-    updateCheckerPersonalInfo,
-    addCheckerItem,
-    removeCheckerItem,
-    updateCheckerItem
-  } = useAppStore();
-
-  const hasData = checkerData.personalInfo.fullName || checkerData.personalInfo.summary || checkerData.experience.length > 0;
+  const { CvChecker } = useCvChecker();
+  const { jdText, setJdText, role, setRole, results, isAnalyzing, handleAnalyze, handleReset, hasData } = CvChecker;
 
   return (
     <div className="flex flex-col gap-8 max-w-[1200px] mx-auto py-8">
@@ -42,20 +19,7 @@ const ATSCheckerPage = () => {
 
         {/* Input Column */}
         <div className="lg:col-span-5 flex flex-col gap-6 p-8 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
-          <ResumeInputPanel
-            resumeData={checkerData}
-            updatePersonalInfo={updateCheckerPersonalInfo}
-            addItem={addCheckerItem}
-            removeItem={removeCheckerItem}
-            updateItem={updateCheckerItem}
-            setResumeData={setCheckerData}
-            isExtracting={isExtracting}
-            status={status}
-            mode={mode}
-            setMode={setMode}
-            handleImportFromBuilder={handleImportFromBuilder}
-            handleFileUpload={handleFileUpload} 
-          />
+          <ResumeInputPanel />
           <JobDescriptionPanel jdText={jdText} setJdText={setJdText} />
           <RoleSelector role={role} setRole={setRole} />
 

@@ -1,4 +1,4 @@
-import { extractContactInfo } from "../utils/normalizeText";
+import { extractContactInfo } from "../configs/normalizeText";
 
 export const calculateEssentialsScore = (resumeText) => {
   const { hasEmail, hasPhone, hasLinkedIn } = extractContactInfo(resumeText);
@@ -19,7 +19,9 @@ export const calculateEssentialsScore = (resumeText) => {
     score += 35;
     found.push("Phone Number");
   } else {
-    suggestions.push("Missing Phone Number. Recruiters often want to call you.");
+    suggestions.push(
+      "Missing Phone Number. Recruiters often want to call you.",
+    );
     missing.push("Phone Number");
   }
 
@@ -27,7 +29,9 @@ export const calculateEssentialsScore = (resumeText) => {
     score += 30;
     found.push("LinkedIn");
   } else {
-    suggestions.push("Missing LinkedIn profile link. Highly recommended for modern applications.");
+    suggestions.push(
+      "Missing LinkedIn profile link. Highly recommended for modern applications.",
+    );
     missing.push("LinkedIn");
   }
 
@@ -35,6 +39,6 @@ export const calculateEssentialsScore = (resumeText) => {
     score,
     found,
     missing,
-    suggestions
+    suggestions,
   };
 };

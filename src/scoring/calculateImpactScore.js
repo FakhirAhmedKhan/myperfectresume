@@ -1,12 +1,18 @@
-import { extractBulletLines, findQuantifiedBullets, findActionVerbBullets } from "../utils/bulletAnalysis";
+import {
+  extractBulletLines,
+  findQuantifiedBullets,
+  findActionVerbBullets,
+} from "../configs/bulletAnalysis";
 
 export const calculateImpactScore = (resumeText) => {
   const bulletLines = extractBulletLines(resumeText);
-  
+
   if (bulletLines.length === 0) {
     return {
       score: 0,
-      suggestions: ["No bullet points found. Use bullet points to describe your achievements for better readability and impact."]
+      suggestions: [
+        "No bullet points found. Use bullet points to describe your achievements for better readability and impact.",
+      ],
     };
   }
 
@@ -20,14 +26,18 @@ export const calculateImpactScore = (resumeText) => {
   const quantScore = Math.min(100, (percentQuantified / 0.3) * 100);
   const actionScore = Math.min(100, (percentAction / 0.6) * 100);
 
-  const finalScore = Math.floor((quantScore * 0.6) + (actionScore * 0.4));
-  
+  const finalScore = Math.floor(quantScore * 0.6 + actionScore * 0.4);
+
   const suggestions = [];
   if (percentQuantified < 0.2) {
-    suggestions.push("Strengthen your impact by adding metrics and numbers (e.g., 'Increased sales by 20%').");
+    suggestions.push(
+      "Strengthen your impact by adding metrics and numbers (e.g., 'Increased sales by 20%').",
+    );
   }
   if (percentAction < 0.4) {
-    suggestions.push("Start more bullet points with strong action verbs (e.g., 'Spearheaded', 'Developed').");
+    suggestions.push(
+      "Start more bullet points with strong action verbs (e.g., 'Spearheaded', 'Developed').",
+    );
   }
 
   return {
@@ -35,8 +45,8 @@ export const calculateImpactScore = (resumeText) => {
     stats: {
       totalBullets: bulletLines.length,
       quantified: quantified.length,
-      actionVerbs: actionRated.length
+      actionVerbs: actionRated.length,
     },
-    suggestions
+    suggestions,
   };
 };

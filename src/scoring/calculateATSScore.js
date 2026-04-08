@@ -4,18 +4,32 @@ import { calculateImpactScore } from "./calculateImpactScore";
 import { calculateFormattingScore } from "./calculateFormattingScore";
 import { calculateEssentialsScore } from "./calculateEssentialsScore";
 import { calculateJDMatchScore } from "./calculateJDMatchScore";
-import { SCORING_WEIGHTS } from "../config/scoringWeights";
+import { SCORING_WEIGHTS } from "../configs/scoringWeights";
 
-export const calculateATSScore = (resumeText, jdText = "", role = "general") => {
+export const calculateATSScore = (
+  resumeText,
+  jdText = "",
+  role = "general",
+) => {
   if (!resumeText || resumeText.length < 50) {
     return {
       score: 0,
-      breakdown: { sections: 0, keywords: 0, impact: 0, formatting: 0, essentials: 0, jdMatch: 0 },
-      foundSections: [], missingSections: ["All sections missing"],
-      foundKeywords: { critical: [], important: [], bonus: [] }, missingKeywords: { critical: [], important: [], bonus: [] },
-      matchedJDKeywords: [], missingJDKeywords: [],
+      breakdown: {
+        sections: 0,
+        keywords: 0,
+        impact: 0,
+        formatting: 0,
+        essentials: 0,
+        jdMatch: 0,
+      },
+      foundSections: [],
+      missingSections: ["All sections missing"],
+      foundKeywords: { critical: [], important: [], bonus: [] },
+      missingKeywords: { critical: [], important: [], bonus: [] },
+      matchedJDKeywords: [],
+      missingJDKeywords: [],
       suggestions: ["Please provide a valid resume text."],
-      strengths: []
+      strengths: [],
     };
   }
 
@@ -28,7 +42,9 @@ export const calculateATSScore = (resumeText, jdText = "", role = "general") => 
   const impactRes = calculateImpactScore(resumeText);
   const formatRes = calculateFormattingScore(resumeText);
   const essRes = calculateEssentialsScore(resumeText);
-  const jdRes = isJDMode ? calculateJDMatchScore(resumeText, jdText) : { score: 0, matched: [], missing: [], suggestions: [] };
+  const jdRes = isJDMode
+    ? calculateJDMatchScore(resumeText, jdText)
+    : { score: 0, matched: [], missing: [], suggestions: [] };
 
   // Calculate Weighted Total
   let totalScore = 0;
@@ -36,7 +52,7 @@ export const calculateATSScore = (resumeText, jdText = "", role = "general") => 
   totalScore += (impactRes.score * weights.impact) / 100;
   totalScore += (formatRes.score * weights.formatting) / 100;
   totalScore += (essRes.score * weights.essentials) / 100;
-  
+
   if (isJDMode) {
     totalScore += (jdRes.score * weights.jdMatch) / 100;
   } else {
@@ -53,13 +69,17 @@ export const calculateATSScore = (resumeText, jdText = "", role = "general") => 
   ];
 
   if (isJDMode) suggestions = [...suggestions, ...jdRes.suggestions];
-  
+
   const strengths = [];
   if (sectionRes.score >= 80) strengths.push("Strong structural sections.");
-  if (essRes.score === 100) strengths.push("All essential contact information included.");
-  if (impactRes.score >= 80) strengths.push("Excellent use of metrics and action verbs.");
-  if (isJDMode && jdRes.score >= 80) strengths.push("Highly aligned with the Job Description.");
-  else if (!isJDMode && keywordRes.score >= 80) strengths.push("Great keyword optimization for the target role.");
+  if (essRes.score === 100)
+    strengths.push("All essential contact information included.");
+  if (impactRes.score >= 80)
+    strengths.push("Excellent use of metrics and action verbs.");
+  if (isJDMode && jdRes.score >= 80)
+    strengths.push("Highly aligned with the Job Description.");
+  else if (!isJDMode && keywordRes.score >= 80)
+    strengths.push("Great keyword optimization for the target role.");
 
   return {
     score: Math.min(100, Math.floor(totalScore)),
@@ -78,6 +98,6 @@ export const calculateATSScore = (resumeText, jdText = "", role = "general") => 
     matchedJDKeywords: jdRes.matched,
     missingJDKeywords: jdRes.missing,
     suggestions: suggestions.slice(0, 6), // Keep it concise
-    strengths
+    strengths,
   };
 };
