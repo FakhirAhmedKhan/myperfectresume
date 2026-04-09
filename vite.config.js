@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
-  base: "/myperfectresume/",
+  base: process.env.GH_PAGES ? "/myperfectresume/" : "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
