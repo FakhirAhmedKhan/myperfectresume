@@ -1,19 +1,18 @@
-import React from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../configs";
 import { CpuIcon, FileTextIcon, HomeIcon, LayoutIcon, MoonIcon, SunIcon } from "../index";
 
-export function cn(...inputs) {
-  return inputs
+const cn = (...inputs) =>
+  inputs
     .flat(Infinity)
     .filter(Boolean)
     .join(" ")
     .trim();
-}
 
 const Navbar = ({ currentPage, onPageChange }) => {
   const { theme, toggleTheme } = useTheme();
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
     { name: "Home", id: "home", icon: HomeIcon },

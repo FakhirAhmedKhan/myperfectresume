@@ -67,7 +67,7 @@ const ResumeForm = () => {
         items={resumeData.experience}
         onAdd={() =>
           addItem("experience", {
-            id: Date.now(),
+            id: crypto.randomUUID(),
             company: "",
             position: "",
             date: "",
@@ -89,7 +89,6 @@ const ResumeForm = () => {
               onChange={(e) => update({ position: e.target.value })}
             />
             <Input
-              type="date"
               className="md:col-span-2"
               label="Duration"
               value={item.date}
@@ -113,7 +112,7 @@ const ResumeForm = () => {
         items={resumeData.education}
         onAdd={() =>
           addItem("education", {
-            id: Date.now(),
+            id: crypto.randomUUID(),
             school: "",
             degree: "",
             date: "",
@@ -149,7 +148,7 @@ const ResumeForm = () => {
         icon={<BriefcaseIcon size={20} />}
         items={resumeData.projects}
         onAdd={() =>
-          addItem("projects", { id: Date.now(), name: "", link: "", desc: "" })
+          addItem("projects", { id: crypto.randomUUID(), name: "", link: "", desc: "" })
         }
         onRemove={(id) => removeItem("projects", id)}
         onUpdate={(id, data) => updateItem("projects", id, data)}

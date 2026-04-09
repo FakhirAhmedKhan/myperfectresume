@@ -5,13 +5,10 @@
   .scrollbar-hide {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
-    scroll-behavior: none;
   }
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */
-    scroll-behavior: none;
-    overflow-x: hidden; 
   }
 }
 

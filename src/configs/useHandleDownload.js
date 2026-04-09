@@ -70,7 +70,7 @@ export const useHandleDownload = ({
         setIsExporting(false);
       }
     },
-    [setIsExporting, resumeData],
+    [setIsExporting, resumeData.personalInfo.fullName],
   );
 
   return handleDownload;

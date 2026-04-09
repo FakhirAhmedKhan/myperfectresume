@@ -32,10 +32,9 @@ export const checkRoleKeywords = (resumeText, role = "general") => {
  * In a real app with NLP, this would extract nouns/entities.
  * Here we extract continuous alphanumeric words > 4 chars, filtered by a basic stop word list.
  */
-export const extractJDKeywords = (jdText) => {
-  const normJD = normalizeText(jdText);
-  // Basic stop words
-  const stopWords = new Set([
+
+// Module-level constant — created once, reused across all calls
+const STOP_WORDS = new Set([
     "about",
     "above",
     "after",
@@ -222,12 +221,15 @@ export const extractJDKeywords = (jdText) => {
     "ability",
   ]);
 
+export const extractJDKeywords = (jdText) => {
+  const normJD = normalizeText(jdText);
+
   const words = normJD.split(" ");
   const keywords = new Set();
 
   words.forEach((word) => {
     // Keep alpha-numeric, filter short words and standard stop words
-    if (word.length > 3 && !stopWords.has(word) && !/^\d+$/.test(word)) {
+    if (word.length > 3 && !STOP_WORDS.has(word) && !/^\d+$/.test(word)) {
       keywords.add(word);
     }
   });

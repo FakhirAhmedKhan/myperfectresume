@@ -1,25 +1,10 @@
-import { useState, useEffect } from "react";
 import { useCvBuilder } from "../../configs";
 import { MailIcon, PhoneIcon, MapPinIcon, } from "../../index";
 import { ContactItem } from "../index";
 
 const ProfessionalTemplate = () => {
     const { CVBuilder } = useCvBuilder();
-    const [previewData, setPreviewData] = useState(null);
-
-    useEffect(() => {
-        const load = async () => {
-            const { generateResumePreview } = await import("../../configs");
-            if (CVBuilder?.resumeData) {
-                const result = generateResumePreview(CVBuilder.resumeData);
-                setPreviewData(result);
-            }
-        };
-
-        load();
-    }, [CVBuilder?.resumeData]);
-
-    const data = previewData || CVBuilder?.resumeData || {};
+    const data = CVBuilder?.resumeData || {};
     const { personalInfo = {}, experience = [], education = [], projects = [], skills = [] } = data;
     return (<div id="resume-preview-content" className="p-12 bg-white text-gray-900 min-h-[1056px] shadow-2xl font-serif">
 
@@ -82,14 +67,12 @@ const ProfessionalTemplate = () => {
                 <h2 className="text-lg font-bold border-b border-gray-400 mb-4 uppercase tracking-widest">Projects</h2>
                 <div className="flex flex-col gap-4">
                     {projects.map((project) => (
-                        <div key={project.id} className="flex justify-between items-start">
+                        <div key={project.id}>
                             <h3 className="font-bold text-sm uppercase">{project.name}</h3>
-                            <span className="text-xs font-bold text-gray-600">{project.date}</span>
-                            <p className="text-sm text-justify whitespace-pre-line leading-relaxed pl-2 border-l-2 border-gray-100">{project.desc}</p>
-                            <p className="text-sm text-justify whitespace-pre-line leading-relaxed pl-2 border-l-2 border-gray-100">{project.link}</p>
+                            <p className="text-sm text-justify whitespace-pre-line leading-relaxed pl-2 border-l-2 border-gray-100 mt-1">{project.desc}</p>
+                            {project.link && <p className="text-xs text-gray-500 mt-1">{project.link}</p>}
                         </div>
-                    ))
-                    }
+                    ))}
                 </div>
             </section>
         )}

@@ -1,9 +1,9 @@
 import { HeroSection, FeatureHighlights } from "./index";
 
-const HomePage = () => {
+const HomePage = ({ onPageChange }) => {
     return (
         <div className="overflow-hidden flex flex-col items-center justify-center px-4">
-            <HeroSection />
+            <HeroSection onPageChange={onPageChange} />
             <FeatureHighlights />
         </div>
     );

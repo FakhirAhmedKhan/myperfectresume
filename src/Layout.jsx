@@ -4,7 +4,7 @@ import { LazyMotion } from "framer-motion";
 import { HomePage, BuilderPage, CheckerPage, NavBar } from "./components";
 import "./index.css";
 
-const pages = { home: <HomePage />, builder: <BuilderPage />, checker: <CheckerPage /> };
+const pages = { builder: <BuilderPage />, checker: <CheckerPage /> };
 
 const App = () => {
   const [page, setPage] = useState(() => localStorage.getItem("cv-app-page") || "home");
@@ -16,7 +16,7 @@ const App = () => {
         <NavBar currentPage={page} onPageChange={setPage} />
         <main className="container mx-auto p-4 md:p-8">
           <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-            {pages[page]}
+            {page === "home" ? <HomePage onPageChange={setPage} /> : pages[page]}
           </Suspense>
         </main>
         <footer className="py-12 border-t mt-auto text-center dark:border-gray-800">

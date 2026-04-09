@@ -85,35 +85,18 @@ const ModernTemplate = () => {
                 {projects.length > 0 && (
                     <div className="mb-10">
                         <h2 className="text-xl font-black mb-4 uppercase border-b-2 border-gray-100 pb-2">Projects</h2>
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-6">
                             {projects.map(project => (
                                 <div key={project.id}>
-                                    <div className="flex justify-between items-center mb-1">
-                                        <h3 className="font-bold text-sm">{project.name}</h3>
-                                        <span className="text-[10px] font-black text-gray-400">{project.date}</span>
-                                    </div>
-                                    <p className="text-sm text-gray-500 italic">{project.school}</p>
+                                    <h3 className="font-bold text-base">{project.name}</h3>
+                                    <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line mt-1">{project.desc}</p>
+                                    {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-500 underline mt-1 inline-block">{project.link}</a>}
                                 </div>
                             ))}
                         </div>
                     </div>
                 )}
-                {skills.length > 0 && (
-                    <div className="mb-10">
-                        <h2 className="text-xl font-black mb-4 uppercase border-b-2 border-gray-100 pb-2">Skills</h2>
-                        <div className="flex flex-col gap-4">
-                            {skills.map(skill => (
-                                <div key={skill.id}>
-                                    <div className="flex justify-between items-center mb-1">
-                                        <h3 className="font-bold text-sm">{skill.name}</h3>
-                                        <span className="text-[10px] font-black text-gray-400">{skill.date}</span>
-                                    </div>
-                                    <p className="text-sm text-gray-500 italic">{skill.school}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
+
             </div>
         </div>)
 };

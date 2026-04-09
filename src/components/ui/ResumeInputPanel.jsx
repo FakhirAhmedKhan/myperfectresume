@@ -75,7 +75,7 @@ const ResumeInputPanel = () => {
               title="Experience"
               icon={<BriefcaseIcon size={18} />}
               items={resumeData.experience}
-              onAdd={() => addItem("experience", { id: Date.now(), company: "", position: "", date: "", desc: "" })}
+              onAdd={() => addItem("experience", { id: crypto.randomUUID(), company: "", position: "", date: "", desc: "" })}
               onRemove={(id) => removeItem("experience", id)}
               onUpdate={(id, data) => updateItem("experience", id, data)}
               renderItem={(item, update) => (
@@ -91,7 +91,7 @@ const ResumeInputPanel = () => {
               title="Education"
               icon={<GraduationCapIcon size={18} />}
               items={resumeData.education}
-              onAdd={() => addItem("education", { id: Date.now(), school: "", degree: "", date: "" })}
+              onAdd={() => addItem("education", { id: crypto.randomUUID(), school: "", degree: "", date: "" })}
               onRemove={(id) => removeItem("education", id)}
               onUpdate={(id, data) => updateItem("education", id, data)}
               renderItem={(item, update) => (
