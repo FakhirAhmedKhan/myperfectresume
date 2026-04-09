@@ -1,4 +1,4 @@
-import { ROLE_KEYWORDS } from "../../configs/roleKeywords";
+import { ROLE_KEYWORDS } from "../../configs";
 
 const RoleSelector = ({ role, setRole }) => {
   const roles = Object.keys(ROLE_KEYWORDS);

@@ -1,5 +1,5 @@
-import { useCvBuilder } from "@/configs/useCvBuilder";
-import { MailIcon, PhoneIcon, MapPinIcon } from "../index";
+import { useCvBuilder } from "@/configs";
+import { MailIcon, PhoneIcon, MapPinIcon } from "../../index";
 
 const ModernTemplate = () => {
     const { CVBuilder } = useCvBuilder();

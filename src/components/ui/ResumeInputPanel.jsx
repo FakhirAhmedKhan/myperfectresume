@@ -1,8 +1,9 @@
-import { FileTextIcon, DownloadIcon, LayoutIcon, BriefcaseIcon, GraduationCapIcon, CodeIcon, Input, Textarea, UserIcon } from "../../index";
+import { FileTextIcon, DownloadIcon, LayoutIcon, BriefcaseIcon, GraduationCapIcon, CodeIcon, UserIcon } from "../../index";
 import { Section, DynamicSection } from "./FormSections";
 import * as pdfjs from "pdfjs-dist";
 import pdfjsWorker from "pdfjs-dist/build/pdf.worker.mjs?url";
-import { useCvChecker } from "@/configs/useCvChecker";
+import { useCvChecker } from "../../configs";
+import { Input, Textarea } from "../index";
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 

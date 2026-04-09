@@ -1,5 +1,5 @@
-import { useCvBuilder } from "@/configs/useCvBuilder";
-import { DownloadIcon, TrashIcon } from "@/CustomIcons";
+import { useCvBuilder } from "@/configs";
+import { DownloadIcon, TrashIcon } from "../../index";
 
 const BuildPageHeader = () => {
     const { CVBuilder } = useCvBuilder();

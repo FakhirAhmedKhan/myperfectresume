@@ -1,5 +1,5 @@
 import { BriefcaseIcon } from "../../index";
-import { mockJobDescription } from "../../configs/mockJobDescription";
+import { mockJobDescription } from "../../configs";
 
 const JobDescriptionPanel = ({ jdText, setJdText }) => {
   return (

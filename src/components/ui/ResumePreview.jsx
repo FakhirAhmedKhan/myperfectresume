@@ -1,5 +1,5 @@
-import { ModernTemplate, ProfessionalTemplate } from "../../index";
-import { useCvBuilder } from "../../configs/useCvBuilder";
+import { ModernTemplate, ProfessionalTemplate } from "../index";
+import { useCvBuilder } from "../../configs";
 
 const ResumePreview = () => {
     const { CVBuilder } = useCvBuilder();

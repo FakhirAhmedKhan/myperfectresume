@@ -1,6 +1,6 @@
-import { SearchIcon } from '@/CustomIcons'
-import { JobDescriptionPanel, ResumeInputPanel, RoleSelector } from '@/index'
-import { useCvChecker } from '@/configs/useCvChecker'
+import { SearchIcon } from '../../index'
+import { JobDescriptionPanel, ResumeInputPanel, RoleSelector } from '../index'
+import { useCvChecker } from '../../configs'
 
 const InputColumn = () => {
     const { CvChecker } = useCvChecker();

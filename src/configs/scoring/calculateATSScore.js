@@ -4,7 +4,7 @@ import { calculateImpactScore } from "./calculateImpactScore";
 import { calculateFormattingScore } from "./calculateFormattingScore";
 import { calculateEssentialsScore } from "./calculateEssentialsScore";
 import { calculateJDMatchScore } from "./calculateJDMatchScore";
-import { SCORING_WEIGHTS } from "../scoringWeights";
+import { SCORING_WEIGHTS } from "../index";
 
 export const calculateATSScore = (
   resumeText,

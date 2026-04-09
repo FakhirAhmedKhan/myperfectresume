@@ -1,5 +1,5 @@
-import { AwardIcon, CpuIcon, LayoutIcon } from '@/CustomIcons'
-import { FeatureCard } from '@/index'
+import { AwardIcon, CpuIcon, LayoutIcon } from '../../index'
+import { FeatureCard } from '../index'
 
 const FeatureHighlights = () => {
     return (

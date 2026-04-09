@@ -1,5 +1,5 @@
 import { m } from "framer-motion";
-import { ScoreCard, ScoreBreakdown, KeywordMatchPanel, MissingSectionsPanel, SuggestionsPanel } from "../../index";
+import { ScoreCard, ScoreBreakdown, KeywordMatchPanel, MissingSectionsPanel, SuggestionsPanel } from "../index";
 
 const ATSResults = ({ results, isJDMode }) => {
   if (!results) return null;

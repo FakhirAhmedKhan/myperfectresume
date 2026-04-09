@@ -1,4 +1,4 @@
-import { CpuIcon, LayoutIcon, SparklesIcon } from "@/CustomIcons"
+import { CpuIcon, LayoutIcon, SparklesIcon } from "../../index"
 
 const HeroSection = () => {
     return (

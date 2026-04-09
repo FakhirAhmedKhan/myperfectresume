@@ -1,4 +1,4 @@
-import { HeroSection, FeatureHighlights } from "@/index";
+import { HeroSection, FeatureHighlights } from "./index";
 
 const HomePage = () => {
     return (

@@ -1,4 +1,4 @@
-import { useCvBuilder } from "../../configs/useCvBuilder.js";
+import { useCvBuilder } from "../../configs";
 import { EyeIcon, Edit3Icon } from "../../index.js";
 
 const MobileTabToggle = () => {

@@ -1,5 +1,5 @@
-import { useTheme } from "./configs/useTheme.js";
-import { CpuIcon, FileTextIcon, HomeIcon, LayoutIcon, MoonIcon, SunIcon } from "./index";
+import { useTheme } from "../configs";
+import { CpuIcon, FileTextIcon, HomeIcon, LayoutIcon, MoonIcon, SunIcon } from "../index";
 
 export function cn(...inputs) {
   return inputs

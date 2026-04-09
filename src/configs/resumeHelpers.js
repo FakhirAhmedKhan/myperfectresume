@@ -20,3 +20,9 @@ export const flattenResume = (data) => {
 
   return text.trim();
 };
+
+export const generateResumePreview = (data) => {
+  // This helper can be used for any pre-processing of the resume data
+  // before rendering it in the template.
+  return data;
+};

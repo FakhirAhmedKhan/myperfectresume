@@ -1,4 +1,5 @@
-import { ATSResults, SearchIcon } from '@/index'
+import { ATSResults } from '../index'
+import { SearchIcon } from '../../index'
 import { AnimatePresence } from 'framer-motion'
 
 const ResultsColumn = ({ results, jdText }) => {

@@ -1,6 +1,7 @@
-import { BriefcaseIcon, GraduationCapIcon, CodeIcon, Input, Textarea, UserIcon, DynamicSection } from "../../index";
+import { BriefcaseIcon, GraduationCapIcon, CodeIcon, UserIcon } from "../../index";
+import { Input, Textarea, DynamicSection } from "../index";
 import { Section } from "./FormSections";
-import { useCvBuilder } from "../../configs/useCvBuilder.js";
+import { useCvBuilder } from "../../configs";
 
 const ResumeForm = () => {
   const { CVBuilder } = useCvBuilder();
