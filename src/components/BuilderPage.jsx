@@ -1,4 +1,4 @@
-import { ResumeForm, ResumePreview, BuildPageHeader, MobileTabToggle } from "../index.js";
+import { ResumeForm, ResumePreview, BuildPageHeader, MobileTabToggle } from "./index.js";
 import { useCvBuilder, CvBuilderProvider } from "../configs/useCvBuilder.js";
 
 const BuilderContent = () => {

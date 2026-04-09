@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { LazyMotion } from "framer-motion";
 import { HomePage, BuilderPage, CheckerPage, NavBar } from "./components";
@@ -7,7 +7,8 @@ import "./index.css";
 const pages = { home: <HomePage />, builder: <BuilderPage />, checker: <CheckerPage /> };
 
 const App = () => {
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState(() => localStorage.getItem("cv-app-page") || "home");
+  useEffect(() => { localStorage.setItem("cv-app-page", page) }, [page]);
 
   return (
     <LazyMotion features={() => import("framer-motion").then(res => res.domAnimation)}>

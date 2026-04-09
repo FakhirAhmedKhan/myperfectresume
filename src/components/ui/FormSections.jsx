@@ -1,7 +1,8 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { PlusIcon, TrashIcon } from "../../index";
+import React from "react";
 
-export const Section = ({ title, icon, children }) => (
+export const Section = React.memo(({ title, icon, children }) => (
     <div className="flex flex-col gap-6 p-6 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm">
         <div className="flex items-center gap-3">
             <div className="p-3 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl border border-blue-100 dark:border-blue-800">
@@ -11,15 +12,15 @@ export const Section = ({ title, icon, children }) => (
         </div>
         {children}
     </div>
-);
+));
 
-export const DynamicSection = ({ title, icon, items = [], onAdd, onRemove, onUpdate, renderItem }) => (
+export const DynamicSection = React.memo(({ title, icon, items = [], onAdd, onRemove, onUpdate, renderItem }) => (
     <Section title={title} icon={icon}>
         <div className="flex flex-col gap-4">
             <AnimatePresence>
                 {items && items.length > 0 ? (
                     items.map((item) => (
-                        <motion.div
+                        <m.div
                             key={item.id}
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
@@ -33,7 +34,7 @@ export const DynamicSection = ({ title, icon, items = [], onAdd, onRemove, onUpd
                                 <TrashIcon size={14} />
                             </button>
                             {renderItem(item, (newData) => onUpdate(item.id, { ...item, ...newData }))}
-                        </motion.div>
+                        </m.div>
                     ))
                 ) : (
                     <div className="text-center py-8 text-gray-400 text-sm italic border-2 border-dashed border-gray-50 dark:border-gray-800/50 rounded-2xl">
@@ -50,6 +51,6 @@ export const DynamicSection = ({ title, icon, items = [], onAdd, onRemove, onUpd
             </button>
         </div>
     </Section>
-);
+));
 
 export default DynamicSection;

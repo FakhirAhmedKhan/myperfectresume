@@ -30,6 +30,21 @@ export default defineConfig({
             if (id.includes("tailwindcss")) {
               return "tailwindcss-vendor";
             }
+            if (id.includes("react")) {
+              return "react-vendor";
+            }
+            if (id.includes("react-dom")) {
+              return "react-dom-vendor";
+            }
+            if (id.includes("react-router-dom")) {
+              return "react-router-dom-vendor";
+            }
+            if (id.includes("tesseract")) {
+              return "tesseract-vendor";
+            }
+            if (id.includes("pdfjs-dist")) {
+              return "pdfjs-dist-vendor";
+            }
             return "vendor";
           }
         },
