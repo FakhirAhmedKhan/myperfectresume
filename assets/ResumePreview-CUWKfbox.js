@@ -1,0 +1,1 @@
+import{t as e}from"./react-vendor-CztU20KD.js";import{h as t,m as n}from"./index-P2TewTDY.js";import{n as r}from"./useCvBuilder-C4Ra4FhX.js";import"./configs-Dne_sLR9.js";var i=e(),a=()=>{let{CVBuilder:e}=r();return e.template===`modern`?(0,i.jsx)(n,{}):(0,i.jsx)(t,{})};export{a as default};

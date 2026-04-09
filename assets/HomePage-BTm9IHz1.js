@@ -1,0 +1,1 @@
+import{t as e}from"./react-vendor-CztU20KD.js";import{o as t,s as n}from"./index-P2TewTDY.js";var r=e(),i=()=>(0,r.jsxs)(`div`,{className:`overflow-hidden flex flex-col items-center justify-center px-4`,children:[(0,r.jsx)(n,{}),(0,r.jsx)(t,{})]});export{i as default};

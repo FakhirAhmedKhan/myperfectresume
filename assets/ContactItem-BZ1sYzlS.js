@@ -1,0 +1,1 @@
+import{t as e}from"./react-vendor-CztU20KD.js";var t=e(),n=({icon:e,text:n})=>(0,t.jsxs)(`div`,{className:`flex items-center gap-2`,children:[(0,t.jsx)(`span`,{className:`text-gray-900 shrink-0`,children:e}),(0,t.jsx)(`span`,{children:n})]});export{n as default};
