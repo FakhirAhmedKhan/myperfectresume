@@ -85,6 +85,8 @@ const ProfessionalTemplate = () => {
                         <div key={project.id} className="flex justify-between items-start">
                             <h3 className="font-bold text-sm uppercase">{project.name}</h3>
                             <span className="text-xs font-bold text-gray-600">{project.date}</span>
+                            <p className="text-sm text-justify whitespace-pre-line leading-relaxed pl-2 border-l-2 border-gray-100">{project.desc}</p>
+                            <p className="text-sm text-justify whitespace-pre-line leading-relaxed pl-2 border-l-2 border-gray-100">{project.link}</p>
                         </div>
                     ))
                     }

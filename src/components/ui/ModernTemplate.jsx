@@ -3,7 +3,7 @@ import { MailIcon, PhoneIcon, MapPinIcon } from "../../index";
 
 const ModernTemplate = () => {
     const { CVBuilder } = useCvBuilder();
-    const { personalInfo = {}, experience = [], education = [], skills = [] } = CVBuilder?.resumeData || {};
+    const { personalInfo = {}, experience = [], education = [], skills = [], projects = [] } = CVBuilder?.resumeData || {};
 
     return (
         <div id="resume-preview-content" className="flex flex-col md:flex-row bg-white text-gray-900 min-h-[1100px] shadow-2xl font-sans">
@@ -76,6 +76,39 @@ const ModernTemplate = () => {
                                         <span className="text-[10px] font-black text-gray-400">{edu.date}</span>
                                     </div>
                                     <p className="text-sm text-gray-500 italic">{edu.school}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {projects.length > 0 && (
+                    <div className="mb-10">
+                        <h2 className="text-xl font-black mb-4 uppercase border-b-2 border-gray-100 pb-2">Projects</h2>
+                        <div className="flex flex-col gap-4">
+                            {projects.map(project => (
+                                <div key={project.id}>
+                                    <div className="flex justify-between items-center mb-1">
+                                        <h3 className="font-bold text-sm">{project.name}</h3>
+                                        <span className="text-[10px] font-black text-gray-400">{project.date}</span>
+                                    </div>
+                                    <p className="text-sm text-gray-500 italic">{project.school}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+                {skills.length > 0 && (
+                    <div className="mb-10">
+                        <h2 className="text-xl font-black mb-4 uppercase border-b-2 border-gray-100 pb-2">Skills</h2>
+                        <div className="flex flex-col gap-4">
+                            {skills.map(skill => (
+                                <div key={skill.id}>
+                                    <div className="flex justify-between items-center mb-1">
+                                        <h3 className="font-bold text-sm">{skill.name}</h3>
+                                        <span className="text-[10px] font-black text-gray-400">{skill.date}</span>
+                                    </div>
+                                    <p className="text-sm text-gray-500 italic">{skill.school}</p>
                                 </div>
                             ))}
                         </div>
